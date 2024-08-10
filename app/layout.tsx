@@ -1,4 +1,6 @@
+import React from "react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -11,12 +13,24 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal
 }: Readonly<{
-  children: React.ReactNode;
+  modal: React.ReactNode,
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <Link href="/login">
+        <button className="bg-blue-500 hover:bg-blue-700 rounded"
+                style={{background:'blue', color:'white', fontWeight:'bold', paddingInline:4, paddingTop: 2, paddingBottom:2}}
+        >
+          Login
+        </button>
+      </Link>
+      {children}
+      {modal}
+      </body>
     </html>
   );
 }

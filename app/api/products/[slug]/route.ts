@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '../../../../prisma/prisma';
 
-export async function GET(req, res) {
+export async function GET(req:any) {
     const id = req.url.split("/").pop();
-    const post = await prisma.items.findMany({
+    const post = await prisma.product.findMany({
         where: { id: parseInt(id) },
         // include: { description: 'Basic' },
     });
@@ -17,7 +17,7 @@ export async function GET(req, res) {
 // let db = null;
 
 // Define the GET request handler function
-export async function GET2(req, res) {
+// export async function GET2(req, res) {
     // Extract the "id" from the URL by splitting the URL and taking the last element
     // const id = req.url.split("/").pop();
 
@@ -42,4 +42,4 @@ export async function GET2(req, res) {
     //     headers: { "Content-Type": "application/json" },
     //     status: 200,
     // });
-}
+// }

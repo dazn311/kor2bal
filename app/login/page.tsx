@@ -13,8 +13,8 @@ export default function Login() {
                             contentEditable={"true"}
                             className={styles.formInput}
                             id="email"
-                            type="email"
-                            placeholder="Enter your email"
+                            data-type="email"
+                            data-placeholder="Enter your email"
                         />
                     </div>
                     <div className={styles.mb4}>
@@ -23,8 +23,8 @@ export default function Login() {
                             contentEditable={"true"}
                             className={styles.formInput}
                             id="password"
-                            type="password"
-                            placeholder="Enter your password"
+                            data-type="password"
+                            data-placeholder="Enter your password"
                         />
                     </div>
                     <div className={styles.btnGroup}>

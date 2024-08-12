@@ -10,6 +10,7 @@
 }
 .catalog_item {
     position: relative;
+    background-color: white;
 }
 .catalog_list .catalog_item {
     width: 23.1%;

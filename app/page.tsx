@@ -12,15 +12,26 @@ const getProducts = async () => {
     });
     return  prds.json();
 }
+const getCatalog = async () => {
+    const catalog = await fetch('http://localhost:3000/api/catalog', {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json", // Set the request headers to indicate JSON format
+        },
+        next: { revalidate: 3 }
+    });
+    return  catalog.json();
+}
 
 export default async function Home() {
-  const prds = await getProducts();
-
+  const products:IProduct[] = await getProducts();
+  const catalog = await getCatalog();
+  console.log('29 catalog:',catalog);
   return (
     <div className="catalog">
         <div className="container">
             <div className={'catalog_list products'}>
-                {prds.map((item) => <ProductViewShort key={item.id} item={item}/>)}
+                {products.map((item) => <ProductViewShort key={item.id} item={item}/>)}
             </div>
         </div>
     </div>

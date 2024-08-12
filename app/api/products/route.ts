@@ -1,7 +1,7 @@
 import { prisma } from '../../../prisma/prisma';
 import {NextResponse, NextRequest} from "next/server";
 
-export async function GET(req:NextRequest, res) {
+export async function GET(req:NextRequest) {
     const post = await prisma.product.findMany({
         orderBy: {
             categoryId: 'asc',

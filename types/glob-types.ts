@@ -1,8 +1,22 @@
 interface IItems {
-  id:           Number;
-  name:         String;
-  description:  String;
-  img:          String;
+  id:           number;
+  name:         string;
+  description:  string;
+  img:          string;
+}
+interface ICategory {
+  id:           number;
+  name:         string;
+  products: IProduct[];
+}
+
+interface IProduct {
+  id:        number;
+  name:      string;
+  imageUrl:  string;
+  category:  ICategory;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 interface User {

@@ -3,7 +3,11 @@ import Image from "next/image";
 import React from "react";
 import './productViewShort.styles.css';
 
-export default function ProductViewShort({item}) {
+type Props = {
+    item:IProduct
+};
+
+export default function ProductViewShort({item}:Props) {
     return <div className={'catalog_item'} key={String(item.id)} >
         <div className="catalog_item_container">
             <div className="wrap_img">

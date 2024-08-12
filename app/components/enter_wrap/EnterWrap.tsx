@@ -3,6 +3,7 @@ import Image from "next/image";
 import userIcon from "../../assets/icons/user.svg";
 import wishlistIcon from "../../assets/icons/wishlist-icon.svg";
 import basketIcon from "../../assets/icons/basket.svg";
+import PopupCart from "../popup_cart/PopupCart";
 import './EnterWrap.styles.css';
 
 export default function EnterWrap() {
@@ -38,5 +39,6 @@ export default function EnterWrap() {
                         alt={'login'}/>
                 </Link>
             </div>
+            <PopupCart/>
         </div>)
 }

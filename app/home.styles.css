@@ -1,0 +1,29 @@
+.catalog_list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    margin-bottom: 47px;
+}
+.catalog_item {
+    position: relative;
+}
+.catalog_list .catalog_item {
+    width: 23.1%;
+    margin: 0 2.5% 3% 0;
+}
+.wrap_img {
+    position: relative;
+}
+.catalog_item .wrap_text strong {
+    font-weight: 500;
+}
+.catalog_item .loop-product__title {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}

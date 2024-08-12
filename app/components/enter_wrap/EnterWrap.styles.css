@@ -12,6 +12,7 @@
 .top_line .enter_wrap .cart:hover + .popup_cart{
     visibility: visible;
     opacity: 1;
+    z-index: 2;
 }
 .top_line .enter_wrap .cart a {
     display: block;

@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Categories from "../components/categories/categories";
 
 export const metadata: Metadata = {
   title: "products",
@@ -16,6 +17,7 @@ export default function ProductsLayout({
 
   return (
     <div>
+        <Categories />
         {children}
         {modal}
     </div>

@@ -1,38 +1,40 @@
 import { Prisma, PrismaClient } from '@prisma/client';
-import { hashSync } from 'bcrypt';
+import { hashSync, genSaltSync } from 'bcrypt';
 
 const prisma = new PrismaClient();
 
 async function up() {
-  await prisma.user.createMany({
-    data: [
-      {
-        fullName: 'Daz',
-        email: 'daz@test.ru',
-        password: hashSync('111111', 10),
-        role: 'USER',
-        orders: {
-          create: []
-        },
-        cartItems:{
-          create: []
-        },
-        verified: new Date(),
-      },
-      {
-        fullName: 'Admin',
-        email: 'admin@test.ru',
-        password: hashSync('111111', 10),
-        role: 'ADMIN',
-        orders: {
-          create: []
-        },
-        cartItems:{
-          create: []
-        },
-        verified: new Date(),
-      },
-    ],
+  const saltRounds = 10;
+
+// Technique 1 (generate a salt and hash on separate function calls):
+  const salt = genSaltSync(saltRounds);
+  // await prisma.user.createMany({
+  //   data: [
+  //     {
+  //       fullName: 'Daz n311',
+  //       email: 'daz@test.ru',
+  //       password: hashSync('111111', 10),
+  //       role: 'USER',
+  //       verified: new Date(),
+  //     },
+  //     {
+  //       fullName: 'Admin local',
+  //       email: 'admin@test.ru',
+  //       password: hashSync('111111', 10),
+  //       role: 'ADMIN',
+  //       verified: new Date(),
+  //     },
+  //   ],
+  // });
+  await prisma.user.create({
+    data: {
+      fullName: 'Daz n311',
+      email: 'daz@test.ru',
+      password: hashSync('111111', salt),
+      role: 'USER',
+      verified: new Date(),
+      updatedAt: new Date()
+    }
   });
   // const user = await prisma.user.create({
   //   data: {
@@ -61,6 +63,7 @@ async function up() {
 }
 
 async function down() {
+  console.log('66 down:');
   // const tables = [
   //   'User',
   //   'Product',
@@ -75,7 +78,7 @@ async function down() {
   //   'StoryItem',
   // ];
   // await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE;`;
-  // await prisma.$executeRaw`DROP TABLE IF EXISTS User;`;
+  await prisma.$executeRaw`DROP TABLE IF EXISTS User;`;
   // await prisma.$executeRaw`TRUNCATE TABLE "Product" RESTART IDENTITY CASCADE;`;
   // await prisma.$executeRaw`TRUNCATE TABLE "Ingredient" RESTART IDENTITY CASCADE;`;
   // await prisma.$executeRaw`TRUNCATE TABLE "Order" RESTART IDENTITY CASCADE;`;
@@ -90,7 +93,7 @@ async function down() {
 
 async function main() {
   try {
-    // await down();
+    await down();
     await up();
   } catch (e) {
     console.error(e);

@@ -1,0 +1,48 @@
+section, header, footer {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+section.description {
+    padding: 72px 0 30px;
+    position: relative;
+    width: 100%;
+}
+section.description .absolute_title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+section.description .absolute_title img {
+    max-width: 100%;
+    display: block;
+}
+section.description .container {
+    position: relative;
+    z-index: 2;
+}
+section.description .row {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-items: center;
+    min-height: 300px;
+}
+
+section.description .wrap_title {
+    width: 40.8%;
+    padding: 28px 15px 20px 17px;
+}
+
+section.description .wrap_text {
+    width: 59.2%;
+}
+section.description .wrap_text .line {
+    height: 2px;
+    width: 100%;
+    max-width: 299px;
+    background-color: #a3a3a3;
+    margin-bottom: 10px;
+}

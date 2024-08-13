@@ -2,8 +2,9 @@ import React from "react";
 import { Inter } from "next/font/google";
 import Header from "./components/header/Header";
 import MiddleLine from "./components/middle-line/MiddleLine";
-import "./globals.css";
 import {Metadata} from "next";
+import DescriptionSection from "./components/descriptionSection/DescriptionSection";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
       <MiddleLine />
       {children}
       {modal}
+      <DescriptionSection />
       </body>
     </html>
   );

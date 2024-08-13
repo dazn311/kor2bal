@@ -26,6 +26,13 @@ export default function ProductViewShort({item}:Props) {
                         <h2 className={'loop-product__title'}>{item.name}</h2>
                     </strong></Link>
                 </div>
+                <Link href={'#'} className={'woocommerce-LoopProduct-link woocommerce-loop-product__link'}>
+                    <span className={'price'}>
+                        <bdi>
+                            2,350
+                        </bdi>
+                    </span>
+                </Link>
             </div>
         </div>
     </div>

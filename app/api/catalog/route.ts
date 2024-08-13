@@ -2,7 +2,13 @@ import { prisma } from '../../../prisma/prisma';
 import {NextResponse, NextRequest} from "next/server";
 
 export async function GET(req:NextRequest) {
-    const category = await prisma.category.findMany();
+    const category = await prisma.category.findMany({
+        select: {
+            id: true,
+            name: true,
+            products: true,
+        },
+    });
     return NextResponse.json(category);
 }
 

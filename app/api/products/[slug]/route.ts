@@ -1,10 +1,16 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '../../../../prisma/prisma';
 
-export async function GET(req:any) {
+export async function GET(req:Request) {
     const id = req.url.split("/").pop();
-    const post = await prisma.product.findMany({
-        where: { id: parseInt(id) },
+    const post = await prisma.product.findFirst({
+        where: { id: Number(id) },
+        select: {
+            id: true,
+            name: true,
+            category: true,
+            imageUrl: true,
+        },
         // include: { description: 'Basic' },
     });
     return NextResponse.json(post);

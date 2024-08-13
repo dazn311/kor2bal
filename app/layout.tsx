@@ -3,8 +3,14 @@ import { Inter } from "next/font/google";
 import Header from "./components/header/Header";
 import MiddleLine from "./components/middle-line/MiddleLine";
 import "./globals.css";
+import {Metadata} from "next";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+    title: "Компрессионное | kor2brand",
+    description: "Компрессионное белье",
+};
 
 export default function RootLayout({
   children,

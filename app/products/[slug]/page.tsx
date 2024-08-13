@@ -1,21 +1,20 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import { prisma } from '../../../prisma/prisma';
+import {getProductBy} from "../../../lib/getProductBy";
+import ProductCart from "../../components/productCart/ProductCart";
 
 export default async function Product({ params: { slug } }: { params: { slug: string } }) {
-    const product = await prisma.items.findFirst({
-        where: {
-            id: Number(slug),
-        }});
+    const product = await getProductBy(slug);
 
     if (!product) {
         return notFound();
     }
-    return (
-        <div className="flex items-center justify-center h-screen"
-             style={{display:'flex',flexDirection:'column',justifyContent:'center',alignContent:'center'}}>
-            <h1 style={{fontWeight:'bold', marginBottom:4}} >{product.name}</h1>
-            <div>{product.description}</div>
-        </div>
-    )
+    return (<ProductCart item={product}/>)
 };
+
+//[8 Product page] product: {
+//   id: 9,
+//   name: 'Рукав компрессионный черный 2.0',
+//   category: { id: 1, name: 'Рукава' },
+//   imageUrl: '/images/compression/Sleeves/SleevesBlack.jpg.webp'
+// }

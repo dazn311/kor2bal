@@ -28,3 +28,45 @@
     font-weight: 700;
     text-transform: uppercase;
 }
+@media screen and (max-width: 767px) {
+    .catalog_list .catalog_item {
+        max-width: 49%;
+        width: 49%;
+        /*margin: 0 2% 3% 0;*/
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .catalog_list .catalog_item {
+        /*max-width: 164px;*/
+        /*width: 48%;*/
+        width: calc(50% - 4px);
+        overflow: hidden;
+        border: 1px solid;
+    }
+    .catalog_list {
+        gap: 4px 8px;
+    }
+    .catalog_item .wrap_text h2{
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .catalog_item .wrap_text {
+        flex-direction: column;
+        font-size: small;
+    }
+}
+.container {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    position: relative;
+}
+
+@media screen and (max-width: 1201px) {
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}

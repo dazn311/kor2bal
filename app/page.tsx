@@ -1,17 +1,8 @@
 import React from "react";
 import ProductViewShort from "./components/productViewShort/ProductViewShort";
 import './home.styles.css';
+import {getProducts} from "../lib/getProducts";
 
-const getProducts = async () => {
-    const prds = await fetch('http://localhost:3000/api/products', {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json", // Set the request headers to indicate JSON format
-        },
-        next: { revalidate: 3 }
-    });
-    return  prds.json();
-}
 const getCatalog = async () => {
     const catalog = await fetch('http://localhost:3000/api/catalog', {
         method: "GET",
@@ -37,6 +28,16 @@ export default async function Home() {
     </div>
   )
 }
+
+
+// export async function generateStaticParams() {
+//     const posts:IProduct[] = await getProducts();
+//
+//     return posts.map((post) => ({
+//         id: post.id.toString(),
+//     }));
+// }
+
 
 //prds: [{
 //     id: 4,

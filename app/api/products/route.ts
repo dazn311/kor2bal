@@ -1,7 +1,7 @@
 import { prisma } from '../../../prisma/prisma';
 import {NextResponse, NextRequest} from "next/server";
 
-export async function GET(req:NextRequest) {
+export async function GET(req:Request) {
     const post = await prisma.product.findMany({
         orderBy: {
             categoryId: 'asc',
@@ -11,7 +11,7 @@ export async function GET(req:NextRequest) {
     return NextResponse.json(post);
 }
 
-export async function POST(req:NextRequest) {
+export async function POST(req:Request) {
     const data = await req.json();
     const post = await prisma.items.create({data});
     return NextResponse.json(post);

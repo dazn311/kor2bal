@@ -63,7 +63,7 @@ export default function ProductCart({item}:Props) {
                         <a href="https://www.wildberries.ru/catalog/19254375/detail.aspx?targetUrl=GP" target="_blank"
                            className="single_add_to_cart_button button alt">Купить на WBerries</a>
                     </div>
-                    <a role="button" tabIndex="0" name="dobavit-v-spisok-zhelanij"
+                    <a role="button" tabIndex={0} data-name="dobavit-v-spisok-zhelanij"
                        aria-label="Добавить в список желаний"
                        className="tinvwl_add_to_wishlist_button tinvwl-position-after" data-tinv-wl-list="[]"
                        data-tinv-wl-product="29994" data-tinv-wl-productvariation="29997"

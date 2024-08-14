@@ -38,8 +38,6 @@
 
 @media screen and (max-width: 991px) {
     .catalog_list .catalog_item {
-        /*max-width: 164px;*/
-        /*width: 48%;*/
         width: calc(50% - 4px);
         overflow: hidden;
         border: 1px solid;

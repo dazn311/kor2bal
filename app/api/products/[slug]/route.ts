@@ -16,6 +16,10 @@ export async function GET(req:Request) {
     return NextResponse.json(post);
 }
 
+// Parse query string parameters
+// const { searchParams } = new URL(req.url);
+// const id2 = searchParams.get('id');
+// const slug = searchParams.get('slug');
 
 // import sqlite3 from "sqlite3";
 // import { open, Database } from "sqlite";

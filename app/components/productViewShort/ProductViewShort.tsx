@@ -11,12 +11,16 @@ export default function ProductViewShort({item}:Props) {
     return <div className={'catalog_item'} key={String(item.id)} >
         <div className="catalog_item_container">
             <div className="wrap_img">
-                <Link href={`/products/${item.id}`}>
+                <Link href={`/products/${item.id}`} scroll={false}>
                     <Image
                         src={item.imageUrl}
                         width={271}
                         height={374}
+                        // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         alt={item.name}
+                        placeholder="blur"
+                        blurDataURL="/images/blurDataURL.jpg"
+
                     />
                 </Link>
             </div>

@@ -4,7 +4,7 @@ import Header from "./components/header/Header";
 import MiddleLine from "./components/middle-line/MiddleLine";
 import {Metadata} from "next";
 import DescriptionSection from "./components/descriptionSection/DescriptionSection";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/footer/Footer";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -12,6 +12,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
     title: "Компрессионное | kor2brand",
     description: "Компрессионное белье",
+    themeColor: 'light',
+    viewport: {
+        width: 1
+    }
 };
 
 export default function RootLayout({
@@ -22,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
       <body className={inter.className}>
       <Header/>
       <MiddleLine />

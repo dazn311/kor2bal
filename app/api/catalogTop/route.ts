@@ -1,4 +1,4 @@
-import {NextResponse, NextRequest} from "next/server";
+import {NextResponse} from "next/server";
 // import { prisma } from '../../../prisma/prisma';
 const catalogTopArr = [
     {id:0, name:'Компрессионное белье'},
@@ -11,7 +11,7 @@ const catalogTopArr = [
     {id:7, name:'Отзывы'},
 ];
 
-export async function GET(req:NextRequest) {
+export async function GET(req:Request) {
     // const category = await prisma.category.findMany();
     return NextResponse.json(catalogTopArr);
 }

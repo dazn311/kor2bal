@@ -12,10 +12,6 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
     title: "Компрессионное | kor2brand",
     description: "Компрессионное белье",
-    themeColor: 'light',
-    viewport: {
-        width: 1
-    }
 };
 
 export default function RootLayout({

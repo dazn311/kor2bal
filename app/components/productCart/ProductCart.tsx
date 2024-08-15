@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import './productCart.styles.css';
@@ -8,6 +7,7 @@ type Props = {
 };
 
 export default function ProductCart({item}:Props) {
+    const imgUrl = Array.isArray(item?.images) ? `/images/${item.images[0].imageUrl}`:'/images/blurDataURL.jpg';
     return <div className={'product_cart'} key={String(item.id)} >
         <div className="row">
             <div className="product_slider">
@@ -18,7 +18,7 @@ export default function ProductCart({item}:Props) {
                                 {
                                     [1,2,3,4,5,6,7,8,9].map((idx) => (<Image
                                         key={idx}
-                                        src={item.imageUrl}
+                                        src={imgUrl}
                                         width={68}
                                         height={74}
                                         alt={item.name}
@@ -35,7 +35,7 @@ export default function ProductCart({item}:Props) {
                             <div className="slick-track">
                                 <div className={'slider_previu_item slick-slide slick-current slick-active'}>
                                     <Image
-                                        src={item.imageUrl}
+                                        src={imgUrl}
                                         width={271}
                                         height={374}
                                         alt={item.name}
@@ -56,7 +56,7 @@ export default function ProductCart({item}:Props) {
                     </strong>
                     <p>
                         <span className={'wc-price-amount amount'}>
-                            <bdi>{(1 + item.id) * 90}<span>руб.</span></bdi>
+                            <bdi>{item.price}<span>руб.</span></bdi>
                         </span>
                     </p>
                     <div className="single_variation_wrap">
@@ -116,7 +116,7 @@ export default function ProductCart({item}:Props) {
                     <div className="previu_img">
                         <Image
                             key={'idx-100'}
-                            src={item.imageUrl}
+                            src={imgUrl}
                             width={68}
                             height={74}
                             alt={item.name}

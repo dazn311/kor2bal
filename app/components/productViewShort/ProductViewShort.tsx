@@ -8,12 +8,13 @@ type Props = {
 };
 
 export default function ProductViewShort({item}:Props) {
+    const imgUrl = Array.isArray(item?.images) ? `/images/${item.images[0].imageUrl}`:'/images/blurDataURL.jpg';
     return <div className={'catalog_item'} key={String(item.id)} >
         <div className="catalog_item_container">
             <div className="wrap_img">
                 <Link href={`/products/${item.id}`} scroll={false}>
                     <Image
-                        src={item.imageUrl}
+                        src={imgUrl}
                         width={271}
                         height={374}
                         // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

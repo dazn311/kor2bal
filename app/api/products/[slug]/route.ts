@@ -3,15 +3,16 @@ import { prisma } from '../../../../prisma/prisma';
 
 export async function GET(req:Request) {
     const id = req.url.split("/").pop();
-    const post = await prisma.product.findFirst({
+    const post = await prisma.productItem.findFirst({
         where: { id: Number(id) },
         select: {
             id: true,
             name: true,
+            images: true,
             category: true,
-            imageUrl: true,
+            price: true,
         },
-        // include: { description: 'Basic' },
+
     });
     return NextResponse.json(post);
 }

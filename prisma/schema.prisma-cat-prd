@@ -18,7 +18,6 @@ model User {
   fullName String
   email    String
   password String
-  imageUrl String?
 
   role String
 
@@ -27,29 +26,20 @@ model User {
   updatedAt DateTime  @updatedAt
 }
 
-model CategoryList {
+model Category {
   id       Int       @id @default(autoincrement())
   name     String
-  imageUrl String
-  products ProductItem[]
+  products Product[]
 }
 
-model ProductItem {
-  id         Int    @id @default(autoincrement())
-  name       String
-  images     ImagesPrd[]
-  price      Int
+model Product {
+  id       Int    @id @default(autoincrement())
+  name     String
+  imageUrl String
 
   categoryId Int
-  category   CategoryList @relation(fields: [categoryId], references: [id])
+  category   Category @relation(fields: [categoryId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-}
-model ImagesPrd {
-  id         Int    @id @default(autoincrement())
-  imageUrl   String
-  product_id Int
-  product    ProductItem   @relation(fields: [product_id], references: [id])
-
 }

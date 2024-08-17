@@ -8,7 +8,7 @@ type Props = {
 };
 
 export default function ProductViewShort({item}:Props) {
-    const imgUrl = Array.isArray(item?.images) ? `/images/${item.images[0].imageUrl}`:'/images/blurDataURL.jpg';
+    const imgUrl = Array.isArray(item?.images) && item.images.length > 0 ? `/images/${item.images[0].imageUrl}`:'/images/blurDataURL.jpg';
     return <div className={'catalog_item'} key={String(item.id)} >
         <div className="catalog_item_container">
             <div className="wrap_img">
@@ -31,7 +31,7 @@ export default function ProductViewShort({item}:Props) {
                         <h2 className={'loop-product__title'}>{item.name}</h2>
                     </strong></Link>
                 </div>
-                <Link href={'#'} className={'woocommerce-LoopProduct-link woocommerce-loop-product__link'}>
+                <Link href={'#'} className={'wc-LoopProduct-link wc-loop-product__link'}>
                     <span className={'price'}>
                         <bdi>
                             2,350

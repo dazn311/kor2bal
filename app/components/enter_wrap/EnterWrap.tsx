@@ -13,7 +13,7 @@ export default function EnterWrap() {
                 <Link href="#" className="js-status-order">Статус заказа</Link>
             </div>
             <div className="user">
-                <Link href="/login" >
+                <Link href="/login" scroll={false} >
                     <Image
                         src={userIcon}
                         width={20}

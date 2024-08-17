@@ -1,6 +1,15 @@
+
 .catalog_item .wrap_text {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 4px;
+    gap: 4px;
+}
+.catalog_item .wrap_text .text_descr h2{
+
+}
+.catalog_item img{
+    width: 100%;
 }

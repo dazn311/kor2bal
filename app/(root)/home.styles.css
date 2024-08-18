@@ -16,9 +16,26 @@
 .catalog_list .catalog_item {
     width: 23.1%;
 }
+
 .wrap_img {
     position: relative;
+    width: 45vw;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    border: 1px solid grey;
+    transition: all .5s;
 }
+[data-el="modal"] .wrap_img {
+    width: 98vw;
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    border: 1px solid grey;
+}
+
 .catalog_item .wrap_text strong {
     font-weight: 500;
 }

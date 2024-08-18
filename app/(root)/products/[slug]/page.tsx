@@ -1,7 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import {getProductBy} from "../../../lib/getProductBy";
-import ProductCart from "../../components/productCart/ProductCart";
+import {getProductBy} from "../../../../lib/getProductBy";
+import ProductCart from "../../../components/productCart/ProductCart";
 
 export default async function Product({ params: { slug } }: { params: { slug: string } }) {
     const product = await getProductBy(slug);

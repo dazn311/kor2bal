@@ -12,8 +12,8 @@ export default async function Categories() {
                   <div className="navBurger"/>
                   <div className="menu-glavnoe-menyu-sleva-container">
                       <ul id={'menu-glavnoe-menyu-sleva'} className={'menu'}>
-                          {catalogArr.map((prd) => <li key={String(prd.id)} >
-                                                          <Link href={'#'}>{prd.name}</Link>
+                          {catalogArr.map((prd) => <li key={String(prd.id)} data-li={'Categories15'} >
+                                                          <Link href={`/catalog/${prd.id}`}>{prd.name}</Link>
                                                       </li>)}
                       </ul>
                   </div>

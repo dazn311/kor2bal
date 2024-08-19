@@ -11,11 +11,11 @@ export async function GET() {
     return NextResponse.json(post);
 }
 
-export async function POST(req:Request) {
-    const data = await req.json();
-    const post = await prisma.items.create({data});
-    return NextResponse.json(post);
-}
+// export async function POST(req:Request) {
+//     const data = await req.json();
+//     const post = await prisma.items.create({data});
+//     return NextResponse.json(post);
+// }
 
 
 // import sqlite3 from "sqlite3";

@@ -7,34 +7,34 @@ interface IItems {
 interface ICategory {
   id:           number;
   name:         string;
-  imageUrl:         string;
-  products: IProduct[];
+  imageUrl:     string;
+  products:     IProduct[];
 }
 
 interface IProduct {
   id:        number;
   name:      string;
-  images:  ImagesPrd[];
-  price:        number;
+  price:     number;
+  images:    ImagesPrd[];
   category:  ICategory;
   createdAt: Date;
   updatedAt: Date;
 }
 
 interface ImagesPrd {
-  id: number;
+  id:       number;
   imageUrl: string;
 
 }
 
 interface User {
-  id: number;
-  fullName: string;
-  email: string;
-  password: string;
-  imageUrl: string;
-  role: string;
-  verified: Date;
+  id:        number;
+  fullName:  string;
+  email:     string;
+  password:  string;
+  imageUrl:  string;
+  role:      string;
+  verified:  Date;
   createdAt: Date;
   updatedAt: Date;
 }

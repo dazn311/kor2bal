@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Компрессионное белье",
   description: "Компрессионное белье 23",
 };
+export const dynamic = 'force-static';
 
 export default function ProductsLayout({
   modal,

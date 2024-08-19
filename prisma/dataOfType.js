@@ -162,14 +162,14 @@ const uniforms = {
 };
 
 const user = [{
-    fullName: 'Daz n311',
-    email: 'daz@test.ru',
-    password: hashSync('111111', salt),
-    role: 'user',
-    imageUrl: 'dazAva',
-    verified: new Date(),
-    updatedAt: new Date()
-},
+        fullName: 'Daz n311',
+        email: 'daz@test.ru',
+        password: hashSync('111111', salt),
+        role: 'user',
+        imageUrl: 'dazAva',
+        verified: new Date(),
+        updatedAt: new Date()
+    },
     {
         fullName: 'Admin 311',
         email: 'admin@test.ru',

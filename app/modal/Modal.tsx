@@ -37,7 +37,7 @@ export default function Modal({ children }: { children: ReactNode }) {
         <div
             ref={overlay}
             className={styles.modal}
-            data-el={'modal'}
+            data-el={'modal40'}
             onClick={onClick}
         >
             <div

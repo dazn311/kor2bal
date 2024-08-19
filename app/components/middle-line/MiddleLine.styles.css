@@ -205,7 +205,7 @@ a, a:hover {
         display: flex;
         flex-direction: row;
         position: relative;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
     }
     .mobile-cart {

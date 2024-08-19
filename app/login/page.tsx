@@ -1,5 +1,6 @@
 import styles from './login.module.css';
 import Link from "next/link";
+export const dynamic = 'force-static';
 
 export default function Login() {
     return (

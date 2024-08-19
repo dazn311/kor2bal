@@ -1,4 +1,5 @@
 import React from 'react';
+import {notFound} from 'next/navigation';
 import ProductViewShort from "../../../components/productViewShort/ProductViewShort";
 import BreadcrumbTitle from "../../../components/breadcrumb/Breadcrumb";
 import {getCatalogBy} from "../../../../lib/getCatalogBy";
@@ -7,9 +8,13 @@ import Image from "next/image";
 type Props = {
     params: { id: string }
 };
+export const dynamic = 'force-static';
 
 export default async function CategoryOne({ params: { id } }: Props) {
     const cat:ICategory = await getCatalogBy(id);
+    if (!cat) {
+        return notFound();
+    }
 
     return (
         <div className="catalog">

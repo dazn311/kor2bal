@@ -1,5 +1,5 @@
 import Link from "next/link";
-// import Image from "next/image";
+import Image from "next/image";
 import React from "react";
 import './productViewShort.styles.css';
 
@@ -9,24 +9,30 @@ type Props = {
 
 export default function ProductViewShort({item}:Props) {
     const imgUrl = Array.isArray(item?.images) && item.images.length > 0 ? `/images/${item.images[0].imageUrl}`:'/images/blurDataURL.jpg';
-    return <div className={'catalog_item'} key={String(item.id)} >
+    return <div className={'catalog_item'} data-el={'ProductViewShort'} key={String(item.id)} >
         <div className="catalog_item_container">
-            <Link href={`/products/${item.id}`} scroll={false} style={{display: 'block', width: '100%', height: '100%'}} >
-                <div className="wrap_img" style={{backgroundImage: `url("${imgUrl}")`}} />
+            <Link href={`/products/${item.id}`} scroll={false} >
+                 <Image
+                    src={imgUrl}
+                    width={271}
+                    height={312}
+                    // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    alt={item.name}
+                    // placeholder="blur"
+                    // blurDataURL="/images/blurDataURL.jpg"
+                />
             </Link>
             <div className="wrap_text">
                 <div className="text_descr">
-                    <Link href={`/products/${item.id}`}><strong>
+                    <strong>
                         <h2 className={'loop-product__title'}>{item.name}</h2>
-                    </strong></Link>
+                    </strong>
                 </div>
-                <Link href={'#'} className={'wc-LoopProduct-link wc-loop-product__link'}>
-                    <span className={'price'}>
+                <span className={'price'}>
                         <bdi>
                             2,350
                         </bdi>
                     </span>
-                </Link>
             </div>
         </div>
     </div>
@@ -40,7 +46,7 @@ export default function ProductViewShort({item}:Props) {
 //     createdAt: '2024-08-12T15:02:39.839Z',
 //     updatedAt: '2024-08-12T15:09:31.129Z'
 //   },
-
+//<div className="wrap_img" style={{backgroundImage: `url("${imgUrl}")`}} />
 // <Image
 //     src={imgUrl}
 //     width={271}

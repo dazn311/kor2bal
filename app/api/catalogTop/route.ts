@@ -1,7 +1,7 @@
 import {NextResponse} from "next/server";
 // import { prisma } from '../../../prisma/prisma';
 const catalogTopArr = [
-    {id:0, name:'Компрессионное белье'},
+    {id:1, name:'Компрессионное белье'},
     {id:1, name:'Рукава'},
     {id:2, name:'Формы'},
     {id:3, name:'Наколенники'},

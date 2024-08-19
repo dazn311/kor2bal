@@ -3,8 +3,10 @@ import { notFound } from 'next/navigation';
 import {getProductBy} from "../../../../lib/getProductBy";
 import ProductCart from "../../../components/productCart/ProductCart";
 
-export default async function Product({ params: { slug } }: { params: { slug: string } }) {
-    const product = await getProductBy(slug);
+export const dynamic = 'force-static';
+
+export default async function Product({ params: { id } }: { params: { id: string } }) {
+    const product = await getProductBy(id);
 
     if (!product) {
         return notFound();

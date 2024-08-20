@@ -1,15 +1,15 @@
 import { prisma } from '../../../prisma/prisma';
 import {NextResponse} from "next/server";
 
-export async function GET() {
-    const post = await prisma.productItem.findMany({
-        orderBy: {
-            categoryId: 'asc',
-        }
-    });
-
-    return NextResponse.json(post);
-}
+// export async function GET() {
+//     const post = await prisma.productItem.findMany({
+//         orderBy: {
+//             categoryId: 'asc',
+//         }
+//     });
+//
+//     return NextResponse.json(post);
+// }
 
 // export async function POST(req:Request) {
 //     const data = await req.json();

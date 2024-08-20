@@ -1,0 +1,35 @@
+// import {NextResponse} from "next/server";
+// import { prisma } from '../../../../prisma/prisma';
+
+// export async function GET(req:Request) {
+//     const id = req.url.split("/").pop();
+//     // const idInt = typeof id === 'string' ? Number(id) : 1;
+//     const idInt = Boolean(id) && !isNaN(Number(id)) ? Number(id) : 1;
+//
+//     const category = await prisma.categoryList.findFirst({
+//         where:{
+//             id: idInt,
+//         },
+//         select: {
+//             id: true,
+//             name: true,
+//             imageUrl: true,
+//             products: {
+//                 select: {
+//                     id: true,
+//                     name: true,
+//                     images: true,
+//                     price: true,
+//                 }
+//             },
+//         },
+//     });
+//
+//     return NextResponse.json(category ?? {});
+// }
+
+// export async function POST(req:NextRequest) {
+//     const data = await req.json();
+//     const post = await prisma.items.create({data});
+//     return NextResponse.json(post);
+// }

@@ -2,10 +2,24 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import './productViewShort.styles.css';
+import {getProductBy} from "../../../lib/getProductBy";
 
 type Props = {
-    item:IProduct
+    item:IProduct2
 };
+// or Dynamic metadata
+export async function generateMetadata({ params: { id } }: { params: { id: string } }) {
+    const product:IProduct2 | null = await getProductBy(id);
+
+    if (!product) {
+        return {
+            title: `Not found | prd`,
+        }
+    }
+    return {
+        title: `${product.name} | prd`,
+    }
+}
 
 export default function ProductViewShort({item}:Props) {
     const imgUrl = Array.isArray(item?.images) && item.images.length > 0 ? `/images/${item.images[0].imageUrl}`:'/images/blurDataURL.jpg';
@@ -30,7 +44,7 @@ export default function ProductViewShort({item}:Props) {
                 </div>
                 <span className={'price'}>
                         <bdi>
-                            2,350
+                            {item.price}
                         </bdi>
                     </span>
             </div>

@@ -27,13 +27,13 @@ export default function Footer() {
                         <div className={'menu-top-menyu-container'}>
                             <div id={'menu-top-menyu-1'} className="menu">
                                 <li className={'menu-item menu-item-type-post_type menu-item-object-page menu-item-32947'}>
-                                    <a href="https://combasket.ru/delivery-and-payment/">Доставка и оплата</a>
+                                    <Link href="/deliveryPayment/">Доставка и оплата</Link>
                                 </li>
                                 <li className={'menu-item menu-item-type-post_type menu-item-object-page menu-item-32947'}>
-                                    <a href="https://combasket.ru/otzivi/">Отзывы</a>
+                                    <Link href="/otzivi/">Отзывы</Link>
                                 </li>
                                 <li className={'menu-item menu-item-type-post_type menu-item-object-page menu-item-32947'}>
-                                    <a href="https://combasket.ru/contacts/">Контакты</a>
+                                    <Link href="/contacts/">Контакты</Link>
                                 </li>
                             </div>
 
@@ -48,10 +48,10 @@ export default function Footer() {
                             <ul id="menu-menyu-podval-1" className="menu">
                                 <li id="menu-item-32907"
                                     className="menu-item menu-item-type-post_type menu-item-object-page menu-item-32907"><a
-                                    href="https://combasket.ru/otzivi/">Отзывы</a></li>
+                                    href="/otzivi">Отзывы</a></li>
                                 <li id="menu-item-32906"
                                     className="menu-item menu-item-type-post_type menu-item-object-page menu-item-32906"><a
-                                    href="https://combasket.ru/contacts/">Контакты</a></li>
+                                    href="/contacts">Контакты</a></li>
                             </ul>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ export default function Footer() {
                             <ul id="menu-menyu-podval-2" className="menu">
                                 <li id="menu-item-32908"
                                     className="menu-item menu-item-type-post_type menu-item-object-page menu-item-32908">
-                                    <a href="https://combasket.ru/delivery-and-payment/">Доставка и оплата</a></li>
+                                    <a href="/deliveryPayment">Доставка и оплата</a></li>
                                 <li id="menu-item-32909"
                                     className="js-status-order menu-item menu-item-type-custom menu-item-object-custom menu-item-32909">
                                     <a href="#">Cтатус заказа</a></li>
@@ -75,14 +75,14 @@ export default function Footer() {
                             <ul id="menu-populyarnye-kategorii" className="menu">
                                 <li id="menu-item-2587"
                                     className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2587">
-                                    <Link href="/longsleeves-and-tshirts/">Лонгсливы
+                                    <Link href="/catalog/1">Лонгсливы
                                         и футболки</Link></li>
                                 <li id="menu-item-2588"
                                     className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2588">
-                                    <Link href="/knee-wraps/">Наколенники</Link></li>
+                                    <Link href="/catalog/3">Наколенники</Link></li>
                                 <li id="menu-item-2590"
                                     className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2590">
-                                    <Link href="/pants/">Штаны</Link></li>
+                                    <Link href="/catalog/2">Штаны</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -117,7 +117,7 @@ export default function Footer() {
                     </div>
                     <div className="desktop-view develop">
                         Разработка сайта -
-                        <Link href={'daz.ru'} target={'_blank'} >daz.ru</Link>
+                        <Link href={'https://daz.ru'} target={'_blank'} >daz.ru</Link>
                     </div>
                 </div>
             </div>

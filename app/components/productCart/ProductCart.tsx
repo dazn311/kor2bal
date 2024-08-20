@@ -1,9 +1,10 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 import './productCart.styles.css';
 
 type Props = {
-    item:IProduct
+    item:IProduct3
 };
 
 export default function ProductCart({item}:Props) {
@@ -76,8 +77,8 @@ export default function ProductCart({item}:Props) {
                             Артикул: <span className="sku">SkeG77/2</span>
                         </span>
                         <span className="posted_in">Категории:
-                            <a href="/compression-underwear/" rel="tag">Компрессионное белье</a>,
-                            <a href="/compression-underwear/pants/" rel="tag">Штаны</a>
+                            <Link href="/catalog" rel="tag">Компрессионное белье</Link>,
+                            <Link href="/catalog/1" rel="tag">Штаны</Link>
                         </span>
                     </div>
 

@@ -11,7 +11,7 @@ const catalogTopArr = [
     {id:7, name:'Отзывы'},
 ];
 
-export async function GET(req:Request) {
+export async function GET() {
     // const category = await prisma.category.findMany();
     return NextResponse.json(catalogTopArr);
 }

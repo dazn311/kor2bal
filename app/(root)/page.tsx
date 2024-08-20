@@ -1,15 +1,18 @@
 import React from "react";
-// import type {CategoryList} from "@prisma/client";
 import ProductViewShort from "../components/productViewShort/ProductViewShort";
 import BreadcrumbTitle from "../components/breadcrumb/Breadcrumb";
 import {getCatalog} from "../../lib/getCatalog";
+import {notFound} from "next/navigation";
 import './home.styles.css';
 
 export const dynamic = 'force-static';
 
 export default async function Home() {
-  const catalog:ICategory[] = await getCatalog() as Omit<ICategory[], 'imageUrl'>;
-
+  const catalog:ICatalog2[] = await getCatalog();// as Omit<ICategory[], 'imageUrl'>;
+  if (!Array.isArray(catalog)) {
+    return notFound();
+  }
+    // console.log('[25 Home] catalog:',JSON.stringify(catalog,null,2));
   return (
     <div className="catalog">
         <div className="container">
@@ -18,7 +21,7 @@ export default async function Home() {
                     return (<div key={id}>
                         <BreadcrumbTitle title={name} />
                         <div className={'catalog_list products'}>
-                            {products.map((item) => <ProductViewShort key={item.id} item={item}/>)}
+                            {products.map((item : any) => <ProductViewShort key={item.id} item={item}/>)}
                         </div>
                     </div>)
                 })
@@ -29,11 +32,11 @@ export default async function Home() {
 }
 
 
-//29 catalog: [
-//   {
-//     id: 1,
-//     name: 'Рукава',
-//     imageUrl: 'Sleeves.jpg',
-//     products: [ [Object], [Object] ]
-//   },
-//   ]
+// export async function generateStaticParams() {
+//     const catalog:ICategory[] = await getCatalog() as Omit<ICategory[], 'imageUrl'>;
+//     return catalog.map(cat => {
+//         return {
+//             id: cat.id
+//         }
+//     })
+// }

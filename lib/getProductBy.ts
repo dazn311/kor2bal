@@ -1,10 +1,23 @@
-export const getProductBy = async (id: string) => {
-    const prd = await fetch(`http://localhost:3000/api/products/${id}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json", // Set the request headers to indicate JSON format
-        },
-        next: { revalidate: 3 }
+import {prisma} from "../prisma/prisma";
+
+export const getProductBy = async (id: string):Promise<IProduct2 | null> => {
+    return  await prisma.productItem.findFirst({
+        where: { id: Number(id) },
+        select: {
+            id: true,
+            name: true,
+            images: true,
+            category: true,
+            price: true,
+        }
     });
-    return  prd.json();
 }
+
+// const prd = await fetch(`http://localhost:3000/api/products/${id}`, {
+//     method: "GET",
+//     headers: {
+//         "Content-Type": "application/json", // Set the request headers to indicate JSON format
+//     },
+//     // next: { revalidate: 3 }
+// });
+// return  prd.json();

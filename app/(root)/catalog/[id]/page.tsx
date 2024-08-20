@@ -1,32 +1,54 @@
 import React from 'react';
 import {notFound} from 'next/navigation';
+import Image from "next/image";
 import ProductViewShort from "../../../components/productViewShort/ProductViewShort";
 import BreadcrumbTitle from "../../../components/breadcrumb/Breadcrumb";
 import {getCatalogBy} from "../../../../lib/getCatalogBy";
-import Image from "next/image";
+
+export const dynamic = 'force-static';
 
 type Props = {
     params: { id: string }
 };
-export const dynamic = 'force-static';
 
 export default async function CategoryOne({ params: { id } }: Props) {
-    const cat:ICategory = await getCatalogBy(id);
-    if (!cat) {
+    const category:ICatalog2 | null = await getCatalogBy(id);
+
+    if (!category) {
         return notFound();
     }
 
     return (
         <div className="catalog">
             <div className="container">
-                <div key={cat.id}>
-                    <BreadcrumbTitle title={cat.name} />
-                    <Image src={`/images${cat.imageUrl}`} alt={cat.name} width={400} height={400}/>
+                <div key={category.id}>
+                    <BreadcrumbTitle title={category.name} />
+                    <Image src={`/images${category.imageUrl}`} alt={category.name} width={400} height={400}/>
                     <div className={'catalog_list products'}>
-                        {cat.products && cat.products.map((item) => <ProductViewShort key={item.id} item={item}/>)}
+                        {category.products && category.products.map((item) => <ProductViewShort key={item.id} item={item}/>)}
                     </div>
                 </div>
             </div>
         </div>
     )
 };
+// import {getCatalog} from "../../../../lib/getCatalog";
+import {prisma} from "../../../../prisma/prisma";
+
+// interface IRes {
+//     id:  string;
+// }
+
+// export async function generateStaticParams() {
+//     const catalog:ICategory[] = await getCatalog();
+//     const resArr:IRes[] = [];
+//
+//     catalog.forEach(cat => {
+//         cat.products.forEach(prd => {
+//             resArr.push({
+//                 id: String(prd.id)
+//             });
+//         })
+//     });
+//     return resArr;
+// }

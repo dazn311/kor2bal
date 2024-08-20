@@ -1,10 +1,10 @@
 import React from "react";
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Компрессионное белье",
-  description: "Компрессионное белье 23",
-};
+// export const metadata: Metadata = {
+//   title: "Компрессионное белье",
+//   description: "Компрессионное белье 23",
+// };
 
 export default function CatalogLayout({
   children,

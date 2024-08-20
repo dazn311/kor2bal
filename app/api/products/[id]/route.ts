@@ -3,8 +3,11 @@ import { prisma } from '../../../../prisma/prisma';
 
 export async function GET(req:Request) {
     const id = req.url.split("/").pop();
+    // const idInt = typeof id === 'string' ? Number(id) : 1;
+    const idInt = Boolean(id) && !isNaN(Number(id)) ? Number(id) : 1;
+
     const post = await prisma.productItem.findFirst({
-        where: { id: Number(id) },
+        where: { id: idInt },
         select: {
             id: true,
             name: true,
@@ -14,6 +17,7 @@ export async function GET(req:Request) {
         },
 
     });
+    // console.log('[20 GET products] post:',post);
     return NextResponse.json(post);
 }
 

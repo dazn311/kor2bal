@@ -11,6 +11,27 @@ interface ICategory {
   products:     IProduct[];
 }
 
+interface ICatalog2 {
+  id:           number;
+  name:         string;
+  imageUrl:     string;
+  products:     IProduct2[];
+}
+
+interface IProduct2 {
+  id:        number;
+  name:      string;
+  images:    ImagesPrd[];
+  price:     number;
+}
+interface IProduct3 {
+  id:        number;
+  name:      string;
+  images:    ImagesPrd[];
+  category:  ICategory;
+  price:     number;
+}
+
 interface IProduct {
   id:        number;
   name:      string;

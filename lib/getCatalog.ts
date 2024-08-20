@@ -1,7 +1,7 @@
 import { prisma } from '../prisma/prisma';
 
 export const getCatalog = async ():Promise<ICatalog2[]> => {
-    return await prisma.categoryList.findMany({
+    return prisma.categoryList.findMany({
         select: {
             id: true,
             name: true,

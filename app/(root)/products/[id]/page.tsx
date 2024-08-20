@@ -1,14 +1,15 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
+// import type {ProductItem} from '@prisma/client';
 import {getProductBy} from "../../../../lib/getProductBy";
 import ProductCart from "../../../components/productCart/ProductCart";
 import type {Metadata} from "next";
 
 export const dynamic = 'force-static';
-
+// type TProduct3 = IProduct2 & { category:  ICategory };
 // or Dynamic metadata
 export async function generateMetadata({ params: { id } }: { params: { id: string } }):Promise<Metadata> {
-    const product:IProduct2 | null = await getProductBy(id);
+    const product = await getProductBy(id);//:IProduct2 | null
     if (!product) {
         return {
             title: `Not found | prd`,
@@ -20,7 +21,7 @@ export async function generateMetadata({ params: { id } }: { params: { id: strin
 }
 
 export default async function Product({ params: { id } }: { params: { id: string } }) {
-    const product:IProduct2 | null = await getProductBy(id);
+    const product = await getProductBy(id);//:IProduct2 | null
     // console.log('[41 Product] product:',JSON.stringify(product,null,2));
     if (!product) {
         return notFound();

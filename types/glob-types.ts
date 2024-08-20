@@ -28,7 +28,7 @@ interface IProduct3 {
   id:        number;
   name:      string;
   images:    ImagesPrd[];
-  category:  ICategory;
+  category:  number;
   price:     number;
 }
 

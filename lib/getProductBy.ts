@@ -1,7 +1,8 @@
 import {prisma} from "../prisma/prisma";
+// import type {ProductItem} from '@prisma/client';
 
-export const getProductBy = async (id: string):Promise<IProduct2 | null> => {
-    return  await prisma.productItem.findFirst({
+export const getProductBy = async (id: string) => {//:Promise<IProduct2 | null>
+    return prisma.productItem.findFirst({
         where: { id: Number(id) },
         select: {
             id: true,

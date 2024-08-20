@@ -1,5 +1,6 @@
 import React from 'react';
 import {notFound} from 'next/navigation';
+// import type {CategoryList} from '@prisma/client';
 import Image from "next/image";
 import ProductViewShort from "../../../components/productViewShort/ProductViewShort";
 import BreadcrumbTitle from "../../../components/breadcrumb/Breadcrumb";
@@ -25,7 +26,7 @@ export default async function CategoryOne({ params: { id } }: Props) {
                     <BreadcrumbTitle title={category.name} />
                     <Image src={`/images${category.imageUrl}`} alt={category.name} width={400} height={400}/>
                     <div className={'catalog_list products'}>
-                        {category.products && category.products.map((item) => <ProductViewShort key={item.id} item={item}/>)}
+                        {category.products && category.products.map((item) => <ProductViewShort key={item.id} params={{id: String(item.id)}}/>)}
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import './productCart.styles.css';
 
 type Props = {
-    item:IProduct3
+    item:IProduct2
 };
 
 export default function ProductCart({item}:Props) {
@@ -50,7 +50,8 @@ export default function ProductCart({item}:Props) {
             <div className="product_description">
                 <div className="wrap_text">
                     <strong>
-                        {item?.category?.name ? item.category.name : 'category26'}
+                         {/*{item?.category ? item.category : 'category26'}*/}
+                         {/*{item?.category?.name ? item.category.name : 'category26'}*/}
                         <span>
                             <h1 className={'loop-product__title'}>{item.name}</h1>
                         </span>

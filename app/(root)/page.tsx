@@ -5,10 +5,11 @@ import {getCatalog} from "../../lib/getCatalog";
 import {notFound} from "next/navigation";
 import './home.styles.css';
 
-export const dynamic = 'force-static';
+// export const dynamic = 'force-static';
+// export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  const catalog:ICatalog2[] = await getCatalog();// as Omit<ICategory[], 'imageUrl'>;
+  const catalog = await getCatalog() as Omit<ICategory[], 'imageUrl'>;
   if (!Array.isArray(catalog)) {
     return notFound();
   }
@@ -21,7 +22,7 @@ export default async function Home() {
                     return (<div key={id}>
                         <BreadcrumbTitle title={name} />
                         <div className={'catalog_list products'}>
-                            {products.map((item : any) => <ProductViewShort key={item.id} item={item}/>)}
+                            {products.map((item : any) => <ProductViewShort key={item.id} params={{id: String(item.id)}}/>)}
                         </div>
                     </div>)
                 })

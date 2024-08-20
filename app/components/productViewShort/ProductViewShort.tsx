@@ -1,16 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
+// import type {ProductItem} from '@prisma/client';
 import React from "react";
-import './productViewShort.styles.css';
 import {getProductBy} from "../../../lib/getProductBy";
+import {notFound} from "next/navigation";
+import './productViewShort.styles.css';
 
 type Props = {
     item:IProduct2
 };
 // or Dynamic metadata
 export async function generateMetadata({ params: { id } }: { params: { id: string } }) {
-    const product:IProduct2 | null = await getProductBy(id);
-
+    const product = await getProductBy(id);
     if (!product) {
         return {
             title: `Not found | prd`,
@@ -20,8 +21,13 @@ export async function generateMetadata({ params: { id } }: { params: { id: strin
         title: `${product.name} | prd`,
     }
 }
+export const dynamic = 'force-dynamic';
 
-export default function ProductViewShort({item}:Props) {
+export default async function ProductViewShort({ params: { id } }: { params: { id: string } }) {
+    const item = await getProductBy(id);
+    if (!item) {
+        return notFound();
+    }
     const imgUrl = Array.isArray(item?.images) && item.images.length > 0 ? `/images/${item.images[0].imageUrl}`:'/images/blurDataURL.jpg';
     return <div className={'catalog_item'} data-el={'ProductViewShort'} key={String(item.id)} >
         <div className="catalog_item_container">
@@ -71,3 +77,24 @@ export default function ProductViewShort({item}:Props) {
 //     blurDataURL="/images/blurDataURL.jpg"
 //
 // />
+
+// import {getCatalog} from "../../../../../lib/getCatalog";
+
+// export const dynamic = 'force-static';
+
+// interface IRes {
+//     id:  number;
+// }
+
+// export async function generateStaticParams() {
+//     const catalog:ICategory[] = await getCatalog() as Omit<ICategory[], 'imageUrl'>;
+//     const resArr:IRes[] = [];
+//     catalog.forEach(cat => {
+//         cat.products.forEach(prd => {
+//             resArr.push({
+//                 id: prd.id
+//             });
+//         })
+//     });
+//     return resArr;
+// }

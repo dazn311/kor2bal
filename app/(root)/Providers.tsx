@@ -21,7 +21,7 @@ export const Providers: React.FC<AuthProviderProps> = ({ children,session }: Rea
 
     return (
         <>
-            <SessionProvider session={session}>{children}</SessionProvider>
+            <SessionProvider baseUrl={'/'} session={session}>{children}</SessionProvider>
             <Toaster />
         </>
     );

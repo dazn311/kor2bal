@@ -1,12 +1,12 @@
 'use client';
-import React, {FC, useState} from "react";
+import React, {FC} from "react";
 import {useSession} from "next-auth/react";
-import {notFound} from "next/navigation";
 // import {getUserSession} from "../../lib/getUserSession";
+import Image from "next/image";
 import './profilePage.styles.css';
 
 // export const dynamic = 'force-static';
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 type user = {
   name: string,
@@ -21,13 +21,20 @@ export const ProfilePage:FC =  () => {
   const {data: session}:{session:TSession} = useSession();
 
   if (!session) {
-    return notFound();
+    return <div>Вы не авторизованы</div>;
   }
 
   return (
     <div className="ProfilePage">
         <div className="container">
             <h2>Profile Page:</h2>
+            <div>
+                <Image
+                    width={90}
+                    height={90}
+                    src={session.user?.image}
+                    alt={session.user.name}/>
+            </div>
             <div>Name: {session.user.name}</div>
             <div>email: {session.user.email}</div>
         </div>

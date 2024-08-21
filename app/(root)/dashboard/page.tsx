@@ -1,23 +1,32 @@
 'use client';
 import React, {FC} from "react";
 import {useSession} from "next-auth/react";
-import {notFound} from "next/navigation";
 import './dashboard.styles.css';
-
-// export const dynamic = 'force-static';
-export const dynamic = 'force-dynamic';
 
 export const DashboardPage:FC = () => {
   const {data: session} = useSession();
-  console.log('[13 DashboardPage] user:',JSON.stringify(session,null,2));
+
   if (!session) {
-    return notFound();
+    return <div>Вы не авторизованы</div>;
   }
 
   return (
-    <div className="ProfilePage">
-        Profile Page
+    <div className="dashboard">
+      Dashboard Page
     </div>
   )
 }
 export default DashboardPage;
+
+// export const dynamic = 'force-static';
+// export const dynamic = 'force-dynamic';
+
+//  console.log('[13 DashboardPage] session:',JSON.stringify(session,null,2));
+// [13 DashboardPage] session: {
+//   "user": {
+//     "name": "Sanya Monds",
+//         "email": "alex2505@bk.ru",
+//         "image": "https://filin.mail.ru/pic?d=8qSsnxEP80bXfZh2tCQIcTgjnksj3hplCbeuTKzEh4XC3LA8cUbqkrimw_I~&width=180&height=180"
+//   },
+//   "expires": "2024-09-20T09:25:11.962Z"
+// }

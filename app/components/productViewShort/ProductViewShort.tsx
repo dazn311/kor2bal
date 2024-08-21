@@ -1,3 +1,4 @@
+import {FC} from 'react';
 import Link from "next/link";
 import Image from "next/image";
 // import type {ProductItem} from '@prisma/client';
@@ -23,7 +24,7 @@ export async function generateMetadata({ params: { id } }: { params: { id: strin
 }
 export const dynamic = 'force-dynamic';
 
-export default async function ProductViewShort({ params: { id } }: { params: { id: string } }) {
+export const ProductViewShort:FC = async ({ params: { id } }: { params: { id: string } }) => {
     const item = await getProductBy(id);
     if (!item) {
         return notFound();
@@ -57,7 +58,7 @@ export default async function ProductViewShort({ params: { id } }: { params: { i
         </div>
     </div>
 }
-
+export default ProductViewShort;
 //prd: {
 //     id: 4,
 //     name: 'Компрессионные штаны 4.0 3/4',

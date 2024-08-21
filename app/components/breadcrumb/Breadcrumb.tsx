@@ -1,3 +1,4 @@
+import {FC} from 'react';
 // import Link from "next/link";
 import './breadcrumb.styles.css';
 
@@ -5,7 +6,7 @@ type Props = {
     title:string
 };
 
-export default async function BreadcrumbTitle({title}:Props) {
+export  const BreadcrumbTitle:FC = async ({title}:Props) => {
   return (
       <div className={'breadcrumb-wrap'}>
           <nav className="wc-breadcrumb">
@@ -14,3 +15,4 @@ export default async function BreadcrumbTitle({title}:Props) {
       </div>
   )
 }
+export default BreadcrumbTitle;

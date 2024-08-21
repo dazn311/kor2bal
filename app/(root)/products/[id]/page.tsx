@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from "react";
 import { notFound } from 'next/navigation';
 // import type {ProductItem} from '@prisma/client';
 import {getProductBy} from "../../../../lib/getProductBy";
@@ -20,7 +20,7 @@ export async function generateMetadata({ params: { id } }: { params: { id: strin
     }
 }
 
-export default async function Product({ params: { id } }: { params: { id: string } }) {
+export const Product:FC = async ({ params: { id } }: { params: { id: string } }) => {
     const product = await getProductBy(id);//:IProduct2 | null
     // console.log('[41 Product] product:',JSON.stringify(product,null,2));
     if (!product) {
@@ -29,7 +29,7 @@ export default async function Product({ params: { id } }: { params: { id: string
     return (<ProductCart item={product}/>)
 };
 
-
+export default Product;
 // interface IRes {
 //     id:  string;
 // }

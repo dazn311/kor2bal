@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from "react";
 import {notFound} from 'next/navigation';
 // import type {CategoryList} from '@prisma/client';
 import Image from "next/image";
@@ -12,7 +12,7 @@ type Props = {
     params: { id: string }
 };
 
-export default async function CategoryOne({ params: { id } }: Props) {
+export const CategoryOne:FC = async ({ params: { id } }: Props) => {
     const category:ICatalog2 | null = await getCatalogBy(id);
 
     if (!category) {
@@ -33,6 +33,7 @@ export default async function CategoryOne({ params: { id } }: Props) {
         </div>
     )
 };
+export default CategoryOne;
 // import {getCatalog} from "../../../../lib/getCatalog";
 import {prisma} from "../../../../prisma/prisma";
 

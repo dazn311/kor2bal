@@ -1,15 +1,17 @@
+import React, {FC} from "react";
 import Modal from "../../../../modal/Modal";
 import Product from "../../[id]/page";
 
 export const dynamic = 'force-static';
 
-export default function Product2({ params: { id } }: { params: { id: string } }) {
+export const Product2:FC = ({ params: { id } }: { params: { id: string } }) => {
     return (
         <Modal>
             <Product params={{id:id}} />
         </Modal>
     )
 }
+export default Product2;
 // import {getCatalog} from "../../../../../lib/getCatalog";
 // import {getProductBy} from "../../../../../lib/getProductBy";
 

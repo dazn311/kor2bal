@@ -1,7 +1,8 @@
+import {FC} from 'react';
 import Link from "next/link";
-import './MiddleLine.styles.css';
 import Image from "next/image";
 import logo1x from "../../assets/icons/logo1x.png";
+import './MiddleLine.styles.css';
 
 const getCatalog = async () => {
     const catalog = await fetch('http://localhost:3000/api/catalogTop', {
@@ -14,7 +15,7 @@ const getCatalog = async () => {
     return  catalog.json();
 }
 
-export default async function MiddleLine() {
+export const MiddleLine:FC = async () => {
   const catalogArr: ICategory[] = await getCatalog();
   return (
       <div className={'middle_line'}>
@@ -23,7 +24,7 @@ export default async function MiddleLine() {
                   <div className="navBurger"/>
                   <div className="menu-glavnoe-menyu-sleva-container">
                       <ul id={'menu-glavnoe-menyu-sleva'} className={'menu'}>
-                          {catalogArr.slice(0,4).map((prd) => <li key={String(prd.id)} >
+                          {catalogArr.slice(0,4).map((prd,idx) => <li key={String(prd.id) + String(idx)} >
                                                           <Link href={`/catalog/${prd.id}`}>{prd.name}</Link>
                                                       </li>)}
                       </ul>
@@ -44,3 +45,4 @@ export default async function MiddleLine() {
       </div>
   )
 }
+export default MiddleLine;

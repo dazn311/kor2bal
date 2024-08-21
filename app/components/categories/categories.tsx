@@ -1,8 +1,9 @@
+import {FC} from 'react';
 import Link from "next/link";
 import {getCatalog} from "../../../lib/getCatalog";
 import './categories.styles.css';
 
-export default async function Categories() {
+export const Categories = async () => {
   const catalogArr:ICatalog2[] = await getCatalog();
 
   return (
@@ -23,3 +24,4 @@ export default async function Categories() {
       </div>
   )
 }
+export default Categories;

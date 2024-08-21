@@ -1,3 +1,4 @@
+import {FC} from 'react';
 import Image from "next/image";
 import iconOrderStatus from '../../assets/icons/order-status.svg';
 import iconEmail from '../../assets/icons/email.svg';
@@ -9,7 +10,7 @@ import iconInstagram from '../../assets/icons/instagram.svg';
 import Link from "next/link";
 import './footer.styles.css';
 
-export default function Footer() {
+export const Footer:FC = () => {
     return (
         <footer className="footer">
             <div className="container">
@@ -27,13 +28,13 @@ export default function Footer() {
                         <div className={'menu-top-menyu-container'}>
                             <div id={'menu-top-menyu-1'} className="menu">
                                 <li className={'menu-item menu-item-type-post_type menu-item-object-page menu-item-32947'}>
-                                    <Link href="/deliveryPayment/">Доставка и оплата</Link>
+                                    <Link href="/deliveryPayment">Доставка и оплата</Link>
                                 </li>
                                 <li className={'menu-item menu-item-type-post_type menu-item-object-page menu-item-32947'}>
-                                    <Link href="/otzivi/">Отзывы</Link>
+                                    <Link href="/otzivi">Отзывы</Link>
                                 </li>
                                 <li className={'menu-item menu-item-type-post_type menu-item-object-page menu-item-32947'}>
-                                    <Link href="/contacts/">Контакты</Link>
+                                    <Link href="/contacts">Контакты</Link>
                                 </li>
                             </div>
 
@@ -123,3 +124,4 @@ export default function Footer() {
             </div>
         </footer>)
 }
+export default Footer;

@@ -1,3 +1,7 @@
+'use client';
+
+import {FC} from 'react';
+import {useSession} from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 import userIcon from "../../assets/icons/user.svg";
@@ -6,7 +10,9 @@ import basketIcon from "../../assets/icons/basket.svg";
 import PopupCart from "../popup_cart/PopupCart";
 import './EnterWrap.styles.css';
 
-export default function EnterWrap() {
+export const EnterWrap:FC = () => {
+    const {data: session} = useSession();
+    const userImgUrl = !!session ? session.user.image : userIcon;
     return (
         <div className="col col-4 enter_wrap">
             <div className="status">
@@ -15,7 +21,7 @@ export default function EnterWrap() {
             <div className="user">
                 <Link href="/login" scroll={false} >
                     <Image
-                        src={userIcon}
+                        src={userImgUrl}
                         width={20}
                         height={20}
                         alt={'login'}/>
@@ -42,3 +48,4 @@ export default function EnterWrap() {
             <PopupCart/>
         </div>)
 }
+export default EnterWrap;

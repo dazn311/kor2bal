@@ -102,3 +102,6 @@ flex items-center justify-center h-screen
 .mb4 {
     margin-bottom: 16px;
 }
+.session {
+    background-color: white;
+}

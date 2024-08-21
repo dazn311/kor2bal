@@ -14,8 +14,18 @@ const nextConfig = {
                 port: '',
                 pathname: '/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'avatars.githubusercontent.com',
+                port: '',
+                pathname: '/**',
+            },
         ],
-        domains: ['localhost:3000','localhost']
+        domains: [
+            'localhost:3000','localhost',
+            'avatars.githubusercontent.com',
+            'filin.mail.ru'
+        ]
     }
 };
 

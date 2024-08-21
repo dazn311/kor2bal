@@ -1,0 +1,23 @@
+.breadcrumb-wrap {
+    position: relative;
+    background: #f2f2f2;
+    padding: 7px 0 4px;
+    margin-bottom: 3px;
+}
+
+.wc-breadcrumb {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto !important;
+    color: #000 !important;
+    font-size: 10px;
+    font-weight: 300;
+    padding: 0;
+}
+.wc-breadcrumb::before {
+    content: " ";
+    display: table;
+}
+.wc-breadcrumb::after {
+    clear: both;
+}

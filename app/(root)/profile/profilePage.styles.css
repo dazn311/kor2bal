@@ -1,0 +1,12 @@
+.ProfilePage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    margin-bottom: 47px;
+    gap: 10px 20px;
+}

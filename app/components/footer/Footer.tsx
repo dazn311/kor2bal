@@ -1,4 +1,3 @@
-import {FC} from 'react';
 import Image from "next/image";
 import iconOrderStatus from '../../assets/icons/order-status.svg';
 import iconEmail from '../../assets/icons/email.svg';
@@ -10,7 +9,7 @@ import iconInstagram from '../../assets/icons/instagram.svg';
 import Link from "next/link";
 import './footer.styles.css';
 
-export const Footer:FC = () => {
+export default function Footer() {
     return (
         <footer className="footer">
             <div className="container">
@@ -124,4 +123,3 @@ export const Footer:FC = () => {
             </div>
         </footer>)
 }
-export default Footer;

@@ -1,4 +1,3 @@
-import {FC} from 'react';
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
@@ -8,7 +7,7 @@ type Props = {
     item:IProduct2
 };
 
-export const ProductCart:FC = async ({item}:Props) =>{
+export default async function ProductCart({item}:Props) {
     const imgUrl = Array.isArray(item?.images) ? `/images/${item.images[0].imageUrl}`:'/images/blurDataURL.jpg';
     return <div className={'product_cart'} key={String(item.id)} >
         <div className="row">
@@ -131,7 +130,7 @@ export const ProductCart:FC = async ({item}:Props) =>{
 
     </div>
 }
-export default ProductCart;
+
 //item: {
 //   id: 9,
 //   name: 'Рукав компрессионный черный 2.0',

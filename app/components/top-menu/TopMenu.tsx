@@ -1,8 +1,7 @@
-import {FC} from 'react';
 import Link from "next/link";
 import './TopMenu.styles.css';
 
-export const TopMenu:FC = ()=> {
+export default function TopMenu() {
     return <div className="top-menu">
         <div className="menu-top-menyu-container">
             <ul id="menu-top-menyu" className="menu">
@@ -19,5 +18,3 @@ export const TopMenu:FC = ()=> {
         </div>
     </div>
 }
-
-export default TopMenu;

@@ -1,10 +1,9 @@
-import {FC} from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import logo1x from "../../assets/icons/logo1x.png";
 import './MiddleLine.styles.css';
 
-const getCatalog = async () => {
+async function getCatalog() {
     const catalog = await fetch('http://localhost:3000/api/catalogTop', {
         method: "GET",
         headers: {
@@ -15,7 +14,7 @@ const getCatalog = async () => {
     return  catalog.json();
 }
 
-export const MiddleLine:FC = async () => {
+export default async function MiddleLine() {
   const catalogArr: ICategory[] = await getCatalog();
   return (
       <div className={'middle_line'}>
@@ -45,4 +44,3 @@ export const MiddleLine:FC = async () => {
       </div>
   )
 }
-export default MiddleLine;

@@ -1,11 +1,9 @@
-import {FC} from 'react';
 import TopMenu from "../top-menu/TopMenu";
 import TopSoc from "../top_soc/TopSoc";
 import EnterWrap from "../enter_wrap/EnterWrap";
 import './Header.styles.css';
 
-export const Header:FC = async ()=> {
-
+export default async function Header() {
   return (
       <div className={'header'}>
         <div className={'top_line'}>
@@ -20,4 +18,3 @@ export const Header:FC = async ()=> {
       </div>
   )
 }
-export default Header;

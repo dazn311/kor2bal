@@ -1,4 +1,3 @@
-import {FC} from 'react';
 import Link from "next/link";
 import Image from "next/image";
 // import type {ProductItem} from '@prisma/client';
@@ -7,9 +6,9 @@ import {getProductBy} from "../../../lib/getProductBy";
 import {notFound} from "next/navigation";
 import './productViewShort.styles.css';
 
-type Props = {
-    item:IProduct2
-};
+// type Props = {
+//     item:IProduct2
+// };
 // or Dynamic metadata
 export async function generateMetadata({ params: { id } }: { params: { id: string } }) {
     const product = await getProductBy(id);
@@ -22,9 +21,9 @@ export async function generateMetadata({ params: { id } }: { params: { id: strin
         title: `${product.name} | prd`,
     }
 }
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
-export const ProductViewShort:FC = async ({ params: { id } }: { params: { id: string } }) => {
+export default async function ProductViewShort ({ params: { id } }: { params: { id: string } }) {
     const item = await getProductBy(id);
     if (!item) {
         return notFound();
@@ -58,7 +57,7 @@ export const ProductViewShort:FC = async ({ params: { id } }: { params: { id: st
         </div>
     </div>
 }
-export default ProductViewShort;
+
 //prd: {
 //     id: 4,
 //     name: 'Компрессионные штаны 4.0 3/4',
@@ -87,7 +86,7 @@ export default ProductViewShort;
 //     id:  number;
 // }
 
-// export async function generateStaticParams() {
+// export async function generateStaticParams2() {
 //     const catalog:ICategory[] = await getCatalog() as Omit<ICategory[], 'imageUrl'>;
 //     const resArr:IRes[] = [];
 //     catalog.forEach(cat => {

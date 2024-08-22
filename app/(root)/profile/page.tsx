@@ -1,5 +1,5 @@
 'use client';
-import React, {FC} from "react";
+import React from "react";
 import {useSession} from "next-auth/react";
 // import {getUserSession} from "../../lib/getUserSession";
 import Image from "next/image";
@@ -8,19 +8,19 @@ import './profilePage.styles.css';
 // export const dynamic = 'force-static';
 // export const dynamic = 'force-dynamic';
 
-type user = {
-  name: string,
-  email: string,
-  image: string,
-}
-type TSession = {
-  user: user
-}
+// type user = {
+//   name: string,
+//   email: string,
+//   image: string,
+// }
+// type TSession = {
+//   user: user
+// }
 
-export const ProfilePage:FC =  () => {
-  const {data: session}:{session:TSession} = useSession();
+export default function ProfilePage() {
+  const {data: session} = useSession();
 
-  if (!session) {
+  if (!session?.user) {
     return <div>Вы не авторизованы</div>;
   }
 
@@ -32,8 +32,8 @@ export const ProfilePage:FC =  () => {
                 <Image
                     width={90}
                     height={90}
-                    src={session.user?.image}
-                    alt={session.user.name}/>
+                    src={!!session.user?.image ? session.user.image:''}
+                    alt={!!session.user?.name ? session.user.name:'image'}/>
             </div>
             <div>Name: {session.user.name}</div>
             <div>email: {session.user.email}</div>
@@ -41,7 +41,6 @@ export const ProfilePage:FC =  () => {
     </div>
   )
 }
-export default ProfilePage;
 
 //  console.log('[22 ProfilePage] session:',JSON.stringify(session,null,2));
 //[11 ProfilePage] session: {

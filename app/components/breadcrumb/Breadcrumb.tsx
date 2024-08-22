@@ -6,7 +6,7 @@ type Props = {
     title:string
 };
 
-export  const BreadcrumbTitle:FC = async ({title}:Props) => {
+export  default async function BreadcrumbTitle({title}:Props) {
   return (
       <div className={'breadcrumb-wrap'}>
           <nav className="wc-breadcrumb">
@@ -15,4 +15,3 @@ export  const BreadcrumbTitle:FC = async ({title}:Props) => {
       </div>
   )
 }
-export default BreadcrumbTitle;

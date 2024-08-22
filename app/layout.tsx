@@ -4,7 +4,7 @@ import {Providers} from "./(root)/Providers";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-export const dynamic = 'force-static';
+// export const dynamic = 'force-static';
 
 export default async function AppLayout({
   children,

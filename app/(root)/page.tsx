@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React from "react";
 import ProductViewShort from "../components/productViewShort/ProductViewShort";
 import BreadcrumbTitle from "../components/breadcrumb/Breadcrumb";
 import {getCatalog} from "../../lib/getCatalog";
@@ -8,7 +8,7 @@ import './home.styles.css';
 // export const dynamic = 'force-static';
 // export const dynamic = 'force-dynamic';
 
-export const Home:FC = async () => {
+export default async function  Home() {
   const catalog = await getCatalog() as Omit<ICategory[], 'imageUrl'>;
   if (!Array.isArray(catalog)) {
     return notFound();
@@ -31,9 +31,8 @@ export const Home:FC = async () => {
     </div>
   )
 }
-export default Home;
 
-// export async function generateStaticParams() {
+// export async function generateStaticParams2() {
 //     const catalog:ICategory[] = await getCatalog() as Omit<ICategory[], 'imageUrl'>;
 //     return catalog.map(cat => {
 //         return {

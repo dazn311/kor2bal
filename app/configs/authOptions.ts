@@ -4,7 +4,7 @@ import GithubProvider from "next-auth/providers/github";
 // import {prisma} from "../../prisma/prisma";
 // import {hashSync} from "bcrypt";
 
-export const authOptions:NextAuthOptions = {
+const authOptions:NextAuthOptions = {
     session: {
         strategy: 'jwt',
     },
@@ -13,6 +13,14 @@ export const authOptions:NextAuthOptions = {
         GithubProvider({
             clientId: process.env.GITHUB_ID  as string,
             clientSecret: process.env.GITHUB_SECRET  as string,
+            profile: (profile) => {
+                return {
+                        id: profile.id,
+                        name: profile.name || profile.login,
+                        email: profile.email,
+                        image: profile.avatar_url
+                    }
+            }
         }),
         {
             id: "mailru",

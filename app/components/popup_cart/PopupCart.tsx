@@ -1,7 +1,6 @@
-import {FC} from 'react';
 import './PopupCart.styles.css';
 
-export const PopupCart:FC = ()=> {
+export default function PopupCart() {
     return (
     <div className="popup_cart">
         <h2 className={'title'}>Корзина</h2>
@@ -14,4 +13,3 @@ export const PopupCart:FC = ()=> {
         </ul>
     </div>)
 }
-export default PopupCart;

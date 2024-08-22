@@ -1,4 +1,3 @@
-import {FC} from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import vkIcon from "../../assets/icons/vk.svg";
@@ -11,7 +10,7 @@ import emailIcon from "../../assets/icons/email.svg";
 import callbackIcon from "../../assets/icons/callback-chat.svg";
 import './TopSoc.styles.css';
 
-export  const TopSoc:FC = ()=> {
+export  default function TopSoc() {
     return (
     <div className="col col-4 top_soc">
         <Link href="http://vk.com/kor2sket" className="soc_item" target="_blank">
@@ -94,4 +93,3 @@ export  const TopSoc:FC = ()=> {
         </div>
     </div>)
 }
-export default TopSoc;

@@ -1,28 +1,32 @@
 'use client';
 
-import React, {FC} from "react";
+import React from "react";
 import Link from "next/link";
 import {signIn, useSession} from 'next-auth/react';
 import Image from "next/image";
 import styles from './login.module.css';
 
-export const dynamic = 'force-static';
+// export const dynamic = 'force-static';
 
-export const Login:FC = () => {
+export default function Login() {
     const {data: session} = useSession();
-
     if (session) {
+        const user = !!session?.user ? session.user : {name:'',image:''};
+        const image = !!user.image ? user.image : '';
+        const name = !!user.name ? user.name : '';
         return <div className={styles.session}>
             <div>Вы вошли успешно.</div>
-            Добрый день, {session.user.name}!
+            Добрый день, {name}!
             <div>
                 <Image
                     width={40}
                     height={40}
-                    src={session.user?.image}
-                    alt={session.user.name}/>
+                    src={image}
+                    alt={name}/>
             </div>
-
+            <div>
+                <Link href={'/dashboard'} scroll={false} >Перейти в dashboard</Link>
+            </div>
         </div>
     }
     return (
@@ -61,7 +65,6 @@ export const Login:FC = () => {
         </div>
     )
 }
-export default Login;
 
 //session : {
 //     "user": {

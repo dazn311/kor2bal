@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React from "react";
 import {notFound} from 'next/navigation';
 // import type {CategoryList} from '@prisma/client';
 import Image from "next/image";
@@ -6,13 +6,13 @@ import ProductViewShort from "../../../components/productViewShort/ProductViewSh
 import BreadcrumbTitle from "../../../components/breadcrumb/Breadcrumb";
 import {getCatalogBy} from "../../../../lib/getCatalogBy";
 
-export const dynamic = 'force-static';
+// export const dynamic = 'force-static';
 
 type Props = {
     params: { id: string }
 };
 
-export const CategoryOne:FC = async ({ params: { id } }: Props) => {
+export default async function CategoryOne ({ params: { id } }: Props) {
     const category:ICatalog2 | null = await getCatalogBy(id);
 
     if (!category) {
@@ -32,8 +32,9 @@ export const CategoryOne:FC = async ({ params: { id } }: Props) => {
             </div>
         </div>
     )
-};
-export default CategoryOne;
+}
+
+// export default CategoryOne;
 // import {getCatalog} from "../../../../lib/getCatalog";
 import {prisma} from "../../../../prisma/prisma";
 
@@ -41,7 +42,7 @@ import {prisma} from "../../../../prisma/prisma";
 //     id:  string;
 // }
 
-// export async function generateStaticParams() {
+// export async function generateStaticParams2() {
 //     const catalog:ICategory[] = await getCatalog();
 //     const resArr:IRes[] = [];
 //

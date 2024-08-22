@@ -1,17 +1,17 @@
-import React, {FC} from "react";
+import React from "react";
 import Modal from "../../../../modal/Modal";
 import Product from "../../[id]/page";
 
-export const dynamic = 'force-static';
+// export const dynamic = 'force-static';
 
-export const Product2:FC = ({ params: { id } }: { params: { id: string } }) => {
+export default async function Product2({ params: { id } }: { params: { id: string } }) {
     return (
         <Modal>
             <Product params={{id:id}} />
         </Modal>
     )
 }
-export default Product2;
+
 // import {getCatalog} from "../../../../../lib/getCatalog";
 // import {getProductBy} from "../../../../../lib/getProductBy";
 
@@ -19,7 +19,7 @@ export default Product2;
 //     id:  string;
 // }
 
-// export async function generateStaticParams() {
+// export async function generateStaticParams2() {
 //     const catalog:ICategory[] = await getCatalog() as Omit<ICategory[], 'imageUrl'>;
 //     const resArr:IRes[] = [];
 //     catalog.forEach(cat => {

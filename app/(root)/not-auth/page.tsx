@@ -1,6 +1,6 @@
-import React, {FC} from "react";
+import React from "react";
 
-export const UnauthorizedPage:FC = async () => {
+export default async function  UnauthorizedPage() {
   return (
     <div className="catalog">
         Доступ запрещен.
@@ -8,4 +8,4 @@ export const UnauthorizedPage:FC = async () => {
   )
 }
 
-export default UnauthorizedPage;
+// export default UnauthorizedPage;

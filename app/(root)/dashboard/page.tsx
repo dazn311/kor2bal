@@ -1,9 +1,9 @@
 'use client';
-import React, {FC} from "react";
+import React from "react";
 import {useSession} from "next-auth/react";
 import './dashboard.styles.css';
 
-export const DashboardPage:FC = () => {
+export default function DashboardPage() {
   const {data: session} = useSession();
 
   if (!session) {
@@ -16,7 +16,7 @@ export const DashboardPage:FC = () => {
     </div>
   )
 }
-export default DashboardPage;
+// export default DashboardPage;
 
 // export const dynamic = 'force-static';
 // export const dynamic = 'force-dynamic';

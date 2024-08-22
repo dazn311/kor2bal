@@ -1,8 +1,8 @@
-import { signup } from '../../actions/auth'
+// import { signup } from '../../actions/auth';
 
 export function SignupForm() {
     return (
-        <form action={signup}>
+        <form >
             <div data-el={'SignupForm6'}>
                 <label htmlFor="name">Name</label>
                 <input id="name" name="name" placeholder="Name" />

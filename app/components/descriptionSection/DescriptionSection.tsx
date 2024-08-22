@@ -1,8 +1,7 @@
-import {FC} from 'react';
 import Image from "next/image";
 import './descriptionSection.styles.css';
 
-export const DescriptionSection:FC = () => {
+export default function DescriptionSection() {
     return (
         <section className="description">
             <div className="absolute_title">
@@ -28,4 +27,3 @@ export const DescriptionSection:FC = () => {
             </div>
         </section>)
 }
-export default DescriptionSection;

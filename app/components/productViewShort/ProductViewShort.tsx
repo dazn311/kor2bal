@@ -23,15 +23,18 @@ export async function generateMetadata({ params: { id } }: { params: { id: strin
 }
 // export const dynamic = 'force-dynamic';
 
-export default async function ProductViewShort ({ params: { id } }: { params: { id: string } }) {
+export default async function ProductViewShort ({ params: { id },url,isModal }: { params: { id: string },url:string,isModal:boolean }) {
     const item = await getProductBy(id);
     if (!item) {
         return notFound();
     }
+    const classNameModal = isModal ? 'catalog_item_container modal':'catalog_item_container';
+    const classNameWrapText = isModal ? 'wrap_text_modal':'wrap_text';
     const imgUrl = Array.isArray(item?.images) && item.images.length > 0 ? `/images/${item.images[0].imageUrl}`:'/images/blurDataURL.jpg';
-    return <div className={'catalog_item'} data-el={'ProductViewShort'} key={String(item.id)} >
-        <div className="catalog_item_container">
-            <Link href={`/products/${item.id}`} scroll={false} >
+
+    return <div className={'catalog_item'} data-el={'ProductViewShort32'} key={String(item.id)} >
+        <div className={classNameModal}>
+            <Link href={`${url}/${item.id}`} scroll={false} >
                  <Image
                     src={imgUrl}
                     width={271}
@@ -42,17 +45,42 @@ export default async function ProductViewShort ({ params: { id } }: { params: { 
                     // blurDataURL="/images/blurDataURL.jpg"
                 />
             </Link>
-            <div className="wrap_text">
-                <div className="text_descr">
-                    <strong>
-                        <h2 className={'loop-product__title'}>{item.name}</h2>
-                    </strong>
-                </div>
-                <span className={'price'}>
+            <div className="product_description">
+                <div className={classNameWrapText}>
+                    <div className="text_descr">
+                        <strong>
+                            <h2 className={'loop-product__title'}>{item.name}</h2>
+                        </strong>
+                    </div>
+                    <span className={'price'}>
                         <bdi>
                             {item.price}
                         </bdi>
                     </span>
+                    {isModal && <>
+                        <div className="single_variation_wrap">
+                            <a href="https://www.wildberries.ru/catalog/19254375/detail.aspx?targetUrl=GP"
+                               target="_blank"
+                               class="single_add_to_carclassNameNameton button alt">Купить на WBerries</a>
+                        </div>
+                        <a role="button" tabindex="0" data-name="tabIndexv-spisok-zhelanij"
+                           aria-label="Добавить в список желаний"
+                           class="tinvwl_add_to_wisclassNameName_button tinvwl-position-after" data-tinv-wl-list="[]"
+                           data-tinv-wl-product="29994" data-tinv-wl-productvariation="29997"
+                           data-tinv-wl-productvariations="[]" data-tinv-wl-producttype="variable"
+                           data-tinv-wl-action="addto"><span class="tinvwl_add_to_wisclassNameName-text">Добавить в список желаний</span></a>
+                        <div className="product_meta">
+                        <span className="sku_wrapper">
+                            Артикул:
+                            <span className="sku">SkeG77/2</span>
+                        </span>
+                            <span className="posted_in">
+                            Категории::
+                            <Link href={'/catalog'}>Компрессионное белье</Link>
+                        </span>
+                        </div>
+                    </>}
+                </div>
             </div>
         </div>
     </div>

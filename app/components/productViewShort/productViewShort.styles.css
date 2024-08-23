@@ -10,4 +10,116 @@
 .catalog_item .wrap_text .text_descr h2{
 
 }
+.catalog_list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    margin-bottom: 47px;
+    gap: 10px 20px;
+}
+.catalog_item {
+    position: relative;
+    background-color: white;
+}
+.catalog_list .catalog_item {
+    width: 23.1%;
+}
 
+.wrap_img {
+    position: relative;
+    width: 45vw;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    border: 1px solid grey;
+    transition: all .5s;
+}
+[data-el="modal"] .wrap_img {
+    width: 98vw;
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    border: 1px solid grey;
+}
+
+.catalog_item .wrap_text strong {
+    font-weight: 500;
+}
+.catalog_item .loop-product__title {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+@media screen and (max-width: 767px) {
+    .catalog_list .catalog_item {
+        max-width: 49%;
+        width: 49%;
+        /*margin: 0 2% 3% 0;*/
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .catalog_list .catalog_item {
+        max-width: 184px;
+        width: calc(50% - 4px);
+        overflow: hidden;
+        border: 1px solid;
+    }
+    .catalog_list {
+        gap: 4px 8px;
+    }
+    .catalog_item .wrap_text h2{
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .catalog_item .wrap_text {
+        flex-direction: column;
+        font-size: small;
+    }
+}
+.container {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    position: relative;
+}
+
+@media screen and (max-width: 1201px) {
+    .container {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.catalog_item_container.modal {
+    display: flex;
+}
+.wrap_text_modal {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+    padding: 4px;
+    gap: 4px;
+}
+.product_cart .product_description .wrap_text_modal strong h1 {
+    display: block;
+    font-size: 24px;
+    margin-top: 8px;
+    color: #000;
+}
+.product_cart .product_description .wrap_text_modal p {
+    font-size: 14px;
+    font-weight: 300;
+    /* font-family: muller; */
+    margin-bottom: 20px;
+    color: #000;
+}

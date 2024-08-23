@@ -37,8 +37,8 @@ export default async function ProductCart({item}:Props) {
                                 <div className={'slider_previu_item slick-slide slick-current slick-active'}>
                                     <Image
                                         src={imgUrl}
-                                        width={271}
-                                        height={374}
+                                        width={492}
+                                        height={460}
                                         alt={item.name}
                                     />
                                 </div>
@@ -85,12 +85,6 @@ export default async function ProductCart({item}:Props) {
 
                 </div>
             </div>
-            <div className="catalog_item_container">
-                <div className="wrap_img">
-
-                </div>
-
-            </div>
         </div>
         <div className="product_tabs">
             <div className="container">
@@ -119,8 +113,8 @@ export default async function ProductCart({item}:Props) {
                         <Image
                             key={'idx-100'}
                             src={imgUrl}
-                            width={68}
-                            height={74}
+                            width={492}
+                            height={460}
                             alt={item.name}
                         />
                     </div>

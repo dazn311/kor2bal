@@ -1,4 +1,4 @@
-import Modal from "../../../modal/Modal";
+import Modal from "../../../components/modal/Modal";
 import Login from "../../../login/page";
 
 export default function Login2() {

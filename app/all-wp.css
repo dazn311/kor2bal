@@ -1636,8 +1636,8 @@ footer .menu-title {
 @media screen and (max-width:1201px) {
 
   .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
   }
 
 }

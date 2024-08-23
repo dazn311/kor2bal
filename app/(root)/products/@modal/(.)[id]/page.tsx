@@ -1,6 +1,6 @@
 import React from "react";
-import Modal from "../../../../modal/Modal";
 import Product from "../../[id]/page";
+import Modal from "../../../../components/modal/Modal";
 
 // export const dynamic = 'force-static';
 

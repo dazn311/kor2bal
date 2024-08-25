@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import TabsContainer from "../tabsContainer/TabsContainer";
 import './productCart.styles.css';
 
 type Props = {
@@ -27,7 +28,6 @@ export default async function ProductCart({item}:Props) {
                                 }
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div className="slider_right_container">
@@ -96,6 +96,7 @@ export default async function ProductCart({item}:Props) {
                             <div className="tabs_item">Доставка</div>
                             <div className="tabs_item">Оплата</div>
                         </div>
+                        <TabsContainer items={[]} />
                         <div className="product_tabs_content">
                             <div className="content_descr">
                                 <p>Компрессионные штаны ComBasket:</p>
@@ -125,6 +126,10 @@ export default async function ProductCart({item}:Props) {
     </div>
 }
 
+function descriptionHelper(item) {
+
+
+}
 //item: {
 //   id: 9,
 //   name: 'Рукав компрессионный черный 2.0',

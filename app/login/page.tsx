@@ -5,11 +5,14 @@ import Link from "next/link";
 import {signIn, useSession} from 'next-auth/react';
 import Image from "next/image";
 import styles from './login.module.css';
+// import {useCategoryStore} from "../../store/category";
 
 // export const dynamic = 'force-static';
 
 export default function Login() {
     const {data: session} = useSession();
+    // const activeId = useCategoryStore(state => state.activeId);
+
     if (session) {
         const user = !!session?.user ? session.user : {name:'',image:''};
         const image = !!user.image ? user.image : '';

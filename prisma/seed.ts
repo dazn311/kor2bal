@@ -1,10 +1,19 @@
 import { Prisma, PrismaClient } from '@prisma/client';
-// import dataOfType from './dataOfType';
+import dataOfType from './dataOfType';
 const prisma = new PrismaClient();
 
 async function up() {
+    for (const user of dataOfType.usersArr) {
+        await prisma.user.create({
+            data:user,
+        })
+    }
   // await prisma.user.createMany({
-  //   data: dataOfType.user
+  //   data: dataOfType.usersArr
+  // });
+
+  // await prisma.user.createMany({
+  //   data: dataOfType.usersArr
   // });
 
   // await prisma.categoryList.create({
@@ -13,6 +22,7 @@ async function up() {
 }
 
 async function down() {
+    await prisma.user.deleteMany();
   console.log('66 down:');
 }
 

@@ -161,7 +161,7 @@ const uniforms = {
     },
 };
 
-const user = [{
+const usersArr = [{
         fullName: 'Daz n311',
         email: 'daz@test.ru',
         password: hashSync('111111', salt),
@@ -185,7 +185,7 @@ const dataOfType = {
     kneeWraps,
     sleeves,
     uniforms,
-    user
+    usersArr
 }
 
 export default dataOfType;

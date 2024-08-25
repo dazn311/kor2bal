@@ -22,7 +22,7 @@ export default async function  Home() {
                     return (<div key={id}>
                         <BreadcrumbTitle title={name} />
                         <div className={'catalog_list products'}>
-                            {products.map((item : any) => <ProductViewShort url={'/products'} key={item.id} params={{id: String(item.id)}}/>)}
+                            {products.map((item : any) => <ProductViewShort isModal={false} url={'/products'} key={item.id} params={{id: String(item.id)}}/>)}
                         </div>
                     </div>)
                 })

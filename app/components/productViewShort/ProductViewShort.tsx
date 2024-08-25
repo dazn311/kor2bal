@@ -61,14 +61,14 @@ export default async function ProductViewShort ({ params: { id },url,isModal }: 
                         <div className="single_variation_wrap">
                             <a href="https://www.wildberries.ru/catalog/19254375/detail.aspx?targetUrl=GP"
                                target="_blank"
-                               class="single_add_to_carclassNameNameton button alt">Купить на WBerries</a>
+                               className="single_add_to_carclassNameNameton button alt">Купить на WBerries</a>
                         </div>
-                        <a role="button" tabindex="0" data-name="tabIndexv-spisok-zhelanij"
+                        <a role="button" tabIndex={0} data-name="tabIndexv-spisok-zhelanij"
                            aria-label="Добавить в список желаний"
-                           class="tinvwl_add_to_wisclassNameName_button tinvwl-position-after" data-tinv-wl-list="[]"
+                           className="tinvwl_add_to_wisclassNameName_button tinvwl-position-after" data-tinv-wl-list="[]"
                            data-tinv-wl-product="29994" data-tinv-wl-productvariation="29997"
                            data-tinv-wl-productvariations="[]" data-tinv-wl-producttype="variable"
-                           data-tinv-wl-action="addto"><span class="tinvwl_add_to_wisclassNameName-text">Добавить в список желаний</span></a>
+                           data-tinv-wl-action="addto"><span className="tinvwl_add_to_wisclassNameName-text">Добавить в список желаний</span></a>
                         <div className="product_meta">
                         <span className="sku_wrapper">
                             Артикул:

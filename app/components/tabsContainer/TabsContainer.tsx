@@ -14,7 +14,7 @@ export default function TabsContainer({items}:TProps) {
     return <div className="product_tabs_content">
         <div className="content_descr">
             {
-                items.map(para => <ParagraphItem paragraph={para} />)
+                items.map((para,idx) => <ParagraphItem key={idx + 'para'} paragraph={para} />)
             }
         </div>
     </div>
@@ -25,7 +25,7 @@ function ParagraphItem({paragraph}: { paragraph:Paragraph }) {
         {paragraph.title && <strong>{paragraph.title}</strong>}
         {Array.isArray(paragraph.body)
             ? <ul>
-                {paragraph.body.map(b => <li>{b}</li>)}
+                {paragraph.body.map((b,idx) => <li key={idx + 'par'}>{b}</li>)}
               </ul>
             : <p>{paragraph.body}</p>}
     </p>

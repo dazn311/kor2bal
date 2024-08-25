@@ -25,7 +25,7 @@ export default async function CategoryOne ({ params: { id } }: Props) {
                         <Image src={`/images${category.imageUrl}`} alt={category.name} width={200} height={200}/>
                     </div>
                     <div className={'catalog_list products'}>
-                        {category.products && category.products.map((item) => <ProductViewShort url={'/product'} key={item.id} params={{id: String(item.id)}}/>)}
+                        {category.products && category.products.map((item) => <ProductViewShort isModal={false} url={'/product'} key={item.id} params={{id: String(item.id)}}/>)}
                     </div>
                 </div>
             </div>

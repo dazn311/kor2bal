@@ -12,18 +12,24 @@ async function up() {
   //   data: dataOfType.usersArr
   // });
 
-  // await prisma.user.createMany({
-  //   data: dataOfType.usersArr
-  // });
+  await prisma.categoryList.create({
+    data: dataOfType.kneeWraps
+  });
 
-  // await prisma.categoryList.create({
-  //   data: dataOfType.kneeWraps
-  // });
+  await prisma.categoryList.create({
+    data: dataOfType.sleeves
+  });
+
+  await prisma.categoryList.create({
+    data: dataOfType.uniforms
+  });
+
+
 }
 
 async function down() {
-    await prisma.user.deleteMany();
-  console.log('66 down:');
+    // await prisma.user.deleteMany();
+  console.log('32 down:');
 }
 
 async function main() {

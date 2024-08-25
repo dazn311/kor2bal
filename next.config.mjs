@@ -15,6 +15,12 @@ const nextConfig = {
                 pathname: '/**',
             },
             {
+                protocol: 'http',
+                hostname: '45.91.8.214',
+                port: '',
+                pathname: '/**',
+            },
+            {
                 protocol: 'https',
                 hostname: 'avatars.githubusercontent.com',
                 port: '',
@@ -22,7 +28,7 @@ const nextConfig = {
             },
         ],
         domains: [
-            'localhost:3000','localhost',
+            'localhost:3000','localhost','45.91.8.214',
             'avatars.githubusercontent.com',
             'filin.mail.ru'
         ]

@@ -23,7 +23,7 @@ export default async function MiddleLine() {
                   <div className="navBurger"/>
                   <div className="menu-glavnoe-menyu-sleva-container">
                       <ul id={'menu-glavnoe-menyu-sleva'} className={'menu'}>
-                          {catalogArr.slice(0,4).map((prd,idx) => <li key={String(prd.id) + String(idx)} >
+                          {catalogArr.slice(0,3).map((prd,idx) => <li key={String(prd.id) + String(idx)} >
                                                           <Link href={`/catalog/${prd.id}`}>{prd.name}</Link>
                                                       </li>)}
                       </ul>
@@ -32,7 +32,7 @@ export default async function MiddleLine() {
                   <div className="menu-glavnoe-menyu-sprava-container">
                       <div className="menu-glavnoe-menyu-sprava">
                           <ul id={'menu-glavnoe-menyu-sprava'} className={'menu'}>
-                              {catalogArr.slice(4,14).map((prd) => <li key={String(prd.id)} >
+                              {catalogArr.slice(3,14).map((prd) => <li key={String(prd.id)} >
                                   <Link href={'#'}>{prd.name}</Link>
                               </li>)}
                           </ul>

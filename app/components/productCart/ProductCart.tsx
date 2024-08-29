@@ -8,6 +8,8 @@ type Props = {
     item:IProduct2
 };
 
+const arr123 = [1,2,3,4,5,6,7,8,9];
+
 export default async function ProductCart({item}:Props) {
     const imgUrl = Array.isArray(item?.images) ? `/images/${item.images[0].imageUrl}`:'/images/blurDataURL.jpg';
     return <div className={'product_cart'} key={String(item.id)} >
@@ -18,7 +20,7 @@ export default async function ProductCart({item}:Props) {
                         <div className={'slick-list draggable'}>
                             <div className="slick-track">
                                 {
-                                    [1,2,3,4,5,6,7,8,9].map((idx) => (<Image
+                                    arr123.map((idx) => (<Image
                                         key={idx}
                                         src={imgUrl}
                                         width={68}

@@ -24,6 +24,11 @@ interface IProduct2 {
   images:    ImagesPrd[];
   price:     number;
 }
+
+type TProduct2Response = IProduct2 & {
+  category:  number;
+};
+
 interface IProduct3 {
   id:        number;
   name:      string;

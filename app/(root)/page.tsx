@@ -9,7 +9,8 @@ import './home.styles.css';
 // export const dynamic = 'force-dynamic';
 
 export default async function  Home() {
-  const catalog = await getCatalog() as Omit<ICategory[], 'imageUrl'>;
+  const catalog:ICatalog2[] = await getCatalog();// as Omit<ICategory[], 'imageUrl'>
+
   if (!Array.isArray(catalog)) {
     return notFound();
   }

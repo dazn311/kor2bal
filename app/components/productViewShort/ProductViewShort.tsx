@@ -6,28 +6,13 @@ import {getProductBy} from "../../../lib/getProductBy";
 import {notFound} from "next/navigation";
 import './productViewShort.styles.css';
 
-// type Props = {
-//     item:IProduct2
-// };
-// or Dynamic metadata
-export async function generateMetadata({ params: { id } }: { params: { id: string } }) {
-    const product = await getProductBy(id);
-    if (!product) {
-        return {
-            title: `Not found | prd`,
-        }
-    }
-    return {
-        title: `${product.name} | prd`,
-    }
-}
-// export const dynamic = 'force-dynamic';
-
 export default async function ProductViewShort ({ params: { id },url,isModal }: { params: { id: string },url:string,isModal:boolean }) {
     const item = await getProductBy(id);
+    // console.log('28 item: ',item)
     if (!item) {
         return notFound();
     }
+
     const classNameModal = isModal ? 'catalog_item_container modal':'catalog_item_container';
     const classNameWrapText = isModal ? 'wrap_text_modal':'wrap_text';
     const imgUrl = Array.isArray(item?.images) && item.images.length > 0 ? `/images/${item.images[0].imageUrl}`:'/images/blurDataURL.jpg';
@@ -126,3 +111,20 @@ export default async function ProductViewShort ({ params: { id },url,isModal }: 
 //     });
 //     return resArr;
 // }
+
+// type Props = {
+//     item:IProduct2
+// };
+// or Dynamic metadata
+// export async function generateMetadata({ params: { id } }: { params: { id: string } }) {
+//     const product = await getProductBy(id);
+//     if (!product) {
+//         return {
+//             title: `Not found | prd`,
+//         }
+//     }
+//     return {
+//         title: `${product.name} | prd`,
+//     }
+// }
+// export const dynamic = 'force-dynamic';

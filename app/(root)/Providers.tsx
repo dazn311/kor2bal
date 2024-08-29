@@ -11,13 +11,13 @@ export interface AuthProviderProps {
 }
 
 export const Providers: React.FC<AuthProviderProps> = ({ children,session }: Readonly<AuthProviderProps>) => {
-    // const [mounted, setMounted] = React.useState(false);
+    const [mounted, setMounted] = React.useState(false);
 
-    // React.useEffect(() => setMounted(true), []);
-    //
-    // if (!mounted) {
-    //     return null;
-    // }
+    React.useEffect(() => setMounted(true), []);
+
+    if (!mounted) {
+      return null;
+    }
 
     return (
         <>

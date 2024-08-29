@@ -32,6 +32,7 @@ export default function Login() {
             </div>
         </div>
     }
+    // redirect('/login')
     return (
         <div className={styles.loginWrap}>
             <div className={styles.login}>
@@ -39,22 +40,20 @@ export default function Login() {
                 <form>
                     <div className={styles.mb4}>
                         <label className={styles.formLabel} htmlFor="email">Имя пользователя или Email</label>
-                        <div
-                            contentEditable={"true"}
+                        <input
                             className={styles.formInput}
                             id="email"
-                            data-type="email"
-                            data-placeholder="Enter your email"
+                            type="email"
+                            placeholder="Enter your email"
                         />
                     </div>
                     <div className={styles.mb4}>
                         <label className={styles.formLabel} htmlFor="password">Пароль</label>
-                        <div
-                            contentEditable={"true"}
+                        <input
                             className={styles.formInput}
                             id="password"
-                            data-type="password"
-                            data-placeholder="Enter your password"
+                            type="password"
+                            placeholder="Enter your password"
                         />
                     </div>
                     <div className={styles.btnGroup}>

@@ -50,7 +50,7 @@
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 #menu-glavnoe-menyu-sleva li, #menu-glavnoe-menyu-sprava li {

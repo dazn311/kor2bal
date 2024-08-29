@@ -1,27 +1,26 @@
-import { prisma } from '../prisma/prisma';
+import axios from 'axios';
 
 export const getCatalog = async ():Promise<ICatalog2[]> => {
-    return prisma.categoryList.findMany({
-        select: {
-            id: true,
-            name: true,
-            imageUrl: true,
-            products: {
-                select: {
-                    id: true,
-                    name: true,
-                    images: true,
-                    price: true,
-                }
-            },
-        },
+    const response2 = await axios(`${process.env.BASE_URL}/api/categoryList`, {
+        method: "GET", headers: {"Content-Type": "application/json"},
+        // next: { revalidate: 30}
     });
+
+    return !!response2 && typeof response2 === 'object' ? response2.data : null;
 }
-// const catalog = await fetch('/api/catalog', {
-//     method: "GET",
-//     headers: {
-//         "Content-Type": "application/json", // Set the request headers to indicate JSON format
+
+// return prisma.categoryList.findMany({
+//     select: {
+//         id: true,
+//         name: true,
+//         imageUrl: true,
+//         products: {
+//             select: {
+//                 id: true,
+//                 name: true,
+//                 images: true,
+//                 price: true,
+//             }
+//         },
 //     },
-//     // next: { revalidate: 30}
 // });
-// return  catalog.json();

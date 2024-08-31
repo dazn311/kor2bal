@@ -47,8 +47,12 @@
     text-transform: uppercase;
 }
 @media screen and (max-width: 767px) {
+    .catalog_list {
+        justify-content: center;
+        gap: 2px 2px;
+    }
     .catalog_list .catalog_item {
-        max-width: 49%;
+        max-width: 50%;
         width: 49%;
         /*margin: 0 2% 3% 0;*/
     }
@@ -56,13 +60,14 @@
 
 @media screen and (max-width: 991px) {
     .catalog_list .catalog_item {
-        max-width: 184px;
+        max-width: 50%;
         width: calc(50% - 4px);
         overflow: hidden;
         border: 1px solid;
     }
     .catalog_list {
-        gap: 4px 8px;
+        justify-content: center;
+        gap: 2px 2px;
     }
     .catalog_item .wrap_text h2{
         font-size: 12px;

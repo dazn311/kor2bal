@@ -1,9 +1,9 @@
 import {NextRequest, NextResponse} from "next/server";
 import {prisma} from "../../../../prisma/prisma";
 
-// productItem
+// categoryList
 export async function GET(req:NextRequest) {
-    const id = await (req.url.split('/').slice(-1)[0]);
+    const [id] = req.url.split('/').slice(-1);
 
     const res =  await prisma.categoryList.findFirst({
         where:{

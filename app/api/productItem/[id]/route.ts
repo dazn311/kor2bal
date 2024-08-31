@@ -3,7 +3,7 @@ import {prisma} from "../../../../prisma/prisma";
 
 // productItem
 export async function GET(req:NextRequest) {
-    const id = await (req.url.split('/').slice(-1)[0]);
+    const [id] = req.url.split('/').slice(-1);
 
     const res =  await prisma.productItem.findFirst({
         where: { id: Number(id) },

@@ -1,4 +1,5 @@
 import axios from "axios";
+export const revalidate = 3600;  // revalidate every hour
 
 export const getProductBy = async (id: string):Promise<IProduct2 | null> => {//:Promise<IProduct2 | null>
     try {

@@ -1,4 +1,5 @@
 import axios from 'axios';
+export const revalidate = 3600;  // revalidate every hour
 
 export const getCatalog = async ():Promise<ICatalog2[]> => {
     const response2 = await axios(`${process.env.BASE_URL}/api/categoryList`, {

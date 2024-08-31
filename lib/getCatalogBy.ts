@@ -1,4 +1,5 @@
 import axios from "axios";
+export const revalidate = 3600;  // revalidate every hour
 
 export const getCatalogBy = async (id:string):Promise<ICatalog2 | null>  => {
 

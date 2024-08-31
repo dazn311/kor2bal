@@ -1,3 +1,4 @@
+// export const revalidate = 3600;  // revalidate every hour
 // export const getProducts = async () => {
 //     const prds = await fetch('http://localhost:3000/api/products', {
 //         method: "GET",

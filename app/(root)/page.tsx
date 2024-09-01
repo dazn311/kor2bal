@@ -3,6 +3,7 @@ import ProductViewShort from "../components/productViewShort/ProductViewShort";
 import BreadcrumbTitle from "../components/breadcrumb/Breadcrumb";
 import {getCatalog} from "@/lib/getCatalog";
 import {notFound} from "next/navigation";
+import {TopBar} from "@/app/components/shared/top-bar";
 import './home.styles.css';
 
 // export const dynamic = 'force-static';
@@ -18,9 +19,10 @@ export default async function  Home() {
   return (
     <div className="catalog">
         <div className="container">
+            <TopBar categories={catalog.filter((c) => c.products.length > 0)} />
             {
                 catalog.map (({id,name,products}) => {
-                    return (<div key={id}>
+                    return (<div key={id} id={name} >
                         <BreadcrumbTitle title={name} />
                         <div className={'catalog_list products'}>
                             {products.map((item : any) => <ProductViewShort isModal={false} url={'/products'} key={item.id} params={{id: String(item.id)}}/>)}

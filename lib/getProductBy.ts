@@ -4,7 +4,7 @@ export const revalidate = 3600;  // revalidate every hour
 export const getProductBy = async (id: string):Promise<IProduct2 | null> => {//:Promise<IProduct2 | null>
     try {
         const url:string = `${process.env.BASE_URL}/api/productItem/${id}`;
-        const res = await axios.get<IProduct3,null>(url, {
+        const res:IProduct3 | null = await axios.get<IProduct3,null>(url, {
             method: "GET", headers: {"Content-Type": "application/json"}
         });
 

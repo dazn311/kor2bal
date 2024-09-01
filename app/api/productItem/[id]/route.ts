@@ -1,20 +1,15 @@
 import {NextRequest, NextResponse} from "next/server";
-import {prisma} from "../../../../prisma/prisma";
+// import { Prisma } from "@prisma/client";
+import getProductItem from "@/app/lib/getProductItemPrisma";
 
+// type UsersWithPosts = Prisma.PrismaPromise<typeof getProductItem>
 // productItem
 export async function GET(req:NextRequest) {
     const [id] = req.url.split('/').slice(-1);
-
-    const res =  await prisma.productItem.findFirst({
-        where: { id: Number(id) },
-        select: {
-            id: true,
-            name: true,
-            images: true,
-            category: true,
-            price: true,
-        }
-    });
+    if (!id) {
+        return NextResponse.json({ error: 'id is required' }, { status: 400 });
+    }
+    const res =  await getProductItem(id);
 
     return NextResponse.json(res);
 }

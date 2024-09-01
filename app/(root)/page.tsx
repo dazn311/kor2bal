@@ -1,7 +1,7 @@
 import React from "react";
 import ProductViewShort from "../components/productViewShort/ProductViewShort";
 import BreadcrumbTitle from "../components/breadcrumb/Breadcrumb";
-import {getCatalog} from "../../lib/getCatalog";
+import {getCatalog} from "@/lib/getCatalog";
 import {notFound} from "next/navigation";
 import './home.styles.css';
 

@@ -1,23 +1,9 @@
 import {NextResponse} from "next/server";
-import {prisma} from "../../../prisma/prisma";
+import getCategoryList from "@/app/lib/categoryListPrisma";
 
 // categoryList
 export async function GET() {
-    const res =  await prisma.categoryList.findMany({
-        select: {
-            id: true,
-            name: true,
-            imageUrl: true,
-            products: {
-                select: {
-                    id: true,
-                    name: true,
-                    images: true,
-                    price: true,
-                }
-            },
-        },
-    });
+    const res =  await getCategoryList();
 
     return NextResponse.json(res);
 }

@@ -5,22 +5,14 @@ import {useSession} from "next-auth/react";
 import Image from "next/image";
 import './profilePage.styles.css';
 
-// export const dynamic = 'force-static';
-// export const dynamic = 'force-dynamic';
-
-// type user = {
-//   name: string,
-//   email: string,
-//   image: string,
-// }
-// type TSession = {
-//   user: user
-// }
-
 export default function ProfilePage() {
-  const {data: session} = useSession();
+  const {data: session, status} = useSession();
 
-  if (!session?.user) {
+  if (status === "loading") {
+        return <p>Loading...</p>
+  }
+
+  if (status === 'unauthenticated') {
     return <div>Вы не авторизованы</div>;
   }
 
@@ -32,11 +24,11 @@ export default function ProfilePage() {
                 <Image
                     width={90}
                     height={90}
-                    src={!!session.user?.image ? session.user.image:''}
-                    alt={!!session.user?.name ? session.user.name:'image'}/>
+                    src={session?.user?.image ?? ''}
+                    alt={session?.user?.name ?? 'image'}/>
             </div>
-            <div>Name: {session.user.name}</div>
-            <div>email: {session.user.email}</div>
+            <div>Name: {session?.user?.name || ''}</div>
+            <div>email: {session?.user?.email || ''}</div>
         </div>
     </div>
   )
@@ -56,4 +48,17 @@ export default function ProfilePage() {
 //   Object.keys(session.user).map(sKey => {
 //     return <div key={sKey}>{session['user'][sKey]}</div>
 //   })
+// }
+
+
+// export const dynamic = 'force-static';
+// export const dynamic = 'force-dynamic';
+
+// type user = {
+//   name: string,
+//   email: string,
+//   image: string,
+// }
+// type TSession = {
+//   user: user
 // }

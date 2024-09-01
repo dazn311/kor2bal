@@ -7,7 +7,7 @@ export const getCatalog = async ():Promise<ICatalog2[]> => {
         // next: { revalidate: 30}
     });
 
-    return !!response2 && typeof response2 === 'object' ? response2.data : null;
+    return !!response2 && response2.status === 200 ? response2.data : null;
 }
 
 // return prisma.categoryList.findMany({

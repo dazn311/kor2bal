@@ -2,7 +2,7 @@ import { prisma } from "@/prisma/prisma"
 
 // Function definition that returns a partial structure
 async function getCategoryList() {
-    return prisma.categoryList.findMany({
+    return await prisma.categoryList.findMany({
         select: {
             id: true,
             name: true,

@@ -1,29 +1,39 @@
+'use client';
+import React,{useEffect, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
-// import type {ProductItem} from '@prisma/client';
-import React from "react";
-import {getProductBy} from "../../../lib/getProductBy";
-import {notFound} from "next/navigation";
+import { Element} from 'react-scroll';
+import {getProductBy} from "@/lib/getProductBy";
 import './productViewShort.styles.css';
+// import type {ProductItem} from '@prisma/client';
+// import {notFound} from "next/navigation";
 
-export default async function ProductViewShort ({ params: { id },url,isModal }: { params: { id: string },url:string,isModal:boolean }) {
-    const item = await getProductBy(id);
-    // console.log('28 item: ',item)
+export default function ProductViewShort ({ params: { id },url,isModal }: { params: { id: string },url:string,isModal:boolean }) {
+    const [item, setItem] = useState<IProduct2 | null>(null);
+    // const item = await getProductBy(id);
+    useEffect(() => {
+        getProductBy(id)
+            .then(prd => {
+                setItem(prd);
+            })
+    },[]);
+
     if (!item) {
-        return notFound();
+        return null;
     }
 
     const classNameModal = isModal ? 'catalog_item_container modal':'catalog_item_container';
     const classNameWrapText = isModal ? 'wrap_text_modal':'wrap_text';
     const imgUrl = Array.isArray(item?.images) && item.images.length > 0 ? `/images/${item.images[0].imageUrl}`:'/images/blurDataURL.jpg';
 
-    return <div className={'catalog_item'} data-el={'ProductViewShort32'} key={String(item.id)} >
+    return <Element className={'catalog_item'} data-el={'ProductViewShort32'} key={String(item.id)} name={item.name} >
         <div className={classNameModal}>
             <Link href={`${url}/${item.id}`} scroll={false} >
                  <Image
                     src={imgUrl}
-                    width={271}
-                    height={312}
+                    fill={true}
+                    // width={271}
+                    // height={312}
                     // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     alt={item.name}
                     // placeholder="blur"
@@ -68,7 +78,7 @@ export default async function ProductViewShort ({ params: { id },url,isModal }: 
                 </div>
             </div>
         </div>
-    </div>
+    </Element>
 }
 
 //prd: {

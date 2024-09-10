@@ -19,14 +19,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <>
+    <main>
       <Header/>
       <MiddleLine />
       {children}
       {modal}
       <DescriptionSection />
       <Footer />
-      <Toaster />
-    </>
+      <Toaster data-testid="toaster" />
+    </main>
   );
 }

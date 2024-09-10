@@ -2,7 +2,7 @@
 import React,{useEffect, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Element} from 'react-scroll';
+// import { Element} from 'react-scroll';
 import {getProductBy} from "@/lib/getProductBy";
 import './productViewShort.styles.css';
 // import type {ProductItem} from '@prisma/client';
@@ -26,7 +26,7 @@ export default function ProductViewShort ({ params: { id },url,isModal }: { para
     const classNameWrapText = isModal ? 'wrap_text_modal':'wrap_text';
     const imgUrl = Array.isArray(item?.images) && item.images.length > 0 ? `/images/${item.images[0].imageUrl}`:'/images/blurDataURL.jpg';
 
-    return <Element className={'catalog_item'} data-el={'ProductViewShort32'} key={String(item.id)} name={item.name} >
+    return <div className={'catalog_item'} data-el={'ProductViewShort32'} key={String(item.id)} >
         <div className={classNameModal}>
             <Link href={`${url}/${item.id}`} scroll={false} >
                  <Image
@@ -78,7 +78,7 @@ export default function ProductViewShort ({ params: { id },url,isModal }: { para
                 </div>
             </div>
         </div>
-    </Element>
+    </div>
 }
 
 //prd: {

@@ -36,7 +36,7 @@
 /*bg-white shadow-md shadow-gray-200 text-primary*/
 .top-bar .categories-items .active-item{
   /*background-color: #0693e3;*/
-  text-shadow: 1px 1px 1px #0693e3;
+  /*text-shadow: 1px 1px 1px #0693e3;*/
   color: #0693e3;
 }
 

@@ -1,14 +1,9 @@
 'use client';
 
-import React, {useEffect} from 'react';
-import {Link, Events, animateScroll as scroll, scrollSpy} from 'react-scroll';
-
-
+import React from 'react';
+import {Link} from 'react-scroll';
 import cn from 'classnames';
-// import {useCategoryStore} from '@/store/category';
 import {CategoryList} from '@prisma/client';
-// import {BtnCatMobile} from "@/app/components/shared/Categories/BtnCatMobile";
-
 
 interface Props {
     items: CategoryList[];
@@ -34,7 +29,7 @@ export const Categories: React.FC<Props> = ({items, className}) => {
                         spy={true}
                         smooth={true}
                         // exact={'true'}
-                        offset={50}
+                        offset={-50}
                         duration={100}
                         onSetActive={handleSetActive}
                     >

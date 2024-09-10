@@ -99,6 +99,12 @@
     }
 }
 .item_mobile_top_menu {
-    /*min-width: 300px;*/
-    border: 1px solid gray;
+    min-width: 110px;
+    text-align: center;
+    /*background-color: #0693e3;*/
+    /*border: 1px solid gray;*/
+    border-right: 1px solid gray;
+}
+.item_mobile_top_menu:last-child {
+    border-right: none;
 }

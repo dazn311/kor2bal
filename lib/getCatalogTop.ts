@@ -1,5 +1,5 @@
 async function getCatalogTop() {
-    const catalog = await fetch('http://localhost:3000/api/catalogTop', {
+    const catalog = await fetch(`${process.env.BASE_URL}/api/catalogTop`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json", // Set the request headers to indicate JSON format

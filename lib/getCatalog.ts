@@ -2,7 +2,7 @@ import axios from 'axios';
 export const revalidate = 3600;  // revalidate every hour
 
 export const getCatalog = async ():Promise<ICatalog2[]> => {
-    const response2 = await axios(`/api/categoryList?query1=1`, {//${process.env.BASE_URL}
+    const response2 = await axios(`${process.env.BASE_URL}/api/categoryList?query1=1`, {//${process.env.BASE_URL}
         method: "GET", headers: {"Content-Type": "application/json"},
         // next: { revalidate: 30}
     });

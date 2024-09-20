@@ -1,16 +1,14 @@
 'use client';
+
 import React,{useEffect, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
-// import { Element} from 'react-scroll';
 import {getProductBy} from "@/lib/getProductBy";
 import './productViewShort.styles.css';
-// import type {ProductItem} from '@prisma/client';
-// import {notFound} from "next/navigation";
 
 export default function ProductViewShort ({ params: { id },url,isModal }: { params: { id: string },url:string,isModal:boolean }) {
     const [item, setItem] = useState<IProduct2 | null>(null);
-    // const item = await getProductBy(id);
+
     useEffect(() => {
         getProductBy(id)
             .then(prd => {

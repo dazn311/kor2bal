@@ -2,7 +2,7 @@
 .categories-items {
   display: flex;
   gap: 4px;
-  background-color: white;
+  /*background-color: white;*/
   padding: 4px 8px;
   overflow-x: scroll;
   scrollbar-width: none;
@@ -23,6 +23,7 @@
   transition: all 0.5s;
   border-bottom: 1px solid gray;
   padding-bottom: 0;
+  background-color: white;
 }
 
 /*flex items-center justify-between*/

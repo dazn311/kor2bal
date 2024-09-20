@@ -101,6 +101,7 @@
 .item_mobile_top_menu {
     min-width: 110px;
     text-align: center;
+    cursor: pointer;
     /*background-color: #0693e3;*/
     /*border: 1px solid gray;*/
     border-right: 1px solid gray;

@@ -13,11 +13,13 @@ interface Props {
 export const Categories: React.FC<Props> = ({items, className}) => {
     // Function to handle the activation of a link.
     const handleSetActive = (to: string) => {
-        if (!!window && typeof window === 'object' && !!window.document && !!window.document.getElementById) {
-            // @ts-ignore
-            window.document.getElementById(`top_menu-${to}`).scrollIntoView({inline: "center"});
+        if (typeof window?.document?.getElementById === 'function') {
+            setTimeout(()=> {
+                // @ts-ignore
+                window.document.getElementById(`top_menu-${to}`).scrollIntoView({inline: "center"});
+            },250);
         }
-    };
+    }
 
     return (
         <ul className={cn('categories-items', className)} >
@@ -29,8 +31,8 @@ export const Categories: React.FC<Props> = ({items, className}) => {
                         spy={true}
                         smooth={true}
                         // exact={'true'}
-                        offset={-50}
-                        duration={100}
+                        offset={-20}
+                        duration={0}
                         onSetActive={handleSetActive}
                     >
                         {category.name}

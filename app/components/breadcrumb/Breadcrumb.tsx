@@ -1,12 +1,11 @@
-import {FC} from 'react';
-// import Link from "next/link";
+'use client';
 import './breadcrumb.styles.css';
 
 type Props = {
     title:string
 };
 
-export  default async function BreadcrumbTitle({title}:Props) {
+export  default function BreadcrumbTitle({title}:Props) {
   return (
       <div className={'breadcrumb-wrap'}>
           <nav className="wc-breadcrumb">

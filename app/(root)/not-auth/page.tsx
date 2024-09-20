@@ -1,6 +1,6 @@
 import React from "react";
 
-export default async function  UnauthorizedPage() {
+export default function  UnauthorizedPage() {
   return (
     <div className="catalog">
         Доступ запрещен.

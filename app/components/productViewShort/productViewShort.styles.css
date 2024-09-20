@@ -71,6 +71,7 @@
         width: calc(50% - 4px);
         overflow: hidden;
         border: 1px solid;
+        height: 312px;
     }
     .catalog_list {
         gap: 4px 8px;

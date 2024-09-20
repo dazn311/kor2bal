@@ -1,21 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo1x from "../../assets/icons/logo1x.png";
+import getCatalogTop from "@/lib/getCatalogTop";
 import './MiddleLine.styles.css';
 
-async function getCatalog() {
-    const catalog = await fetch('http://localhost:3000/api/catalogTop', {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json", // Set the request headers to indicate JSON format
-        },
-        next: { revalidate: 30}
-    });
-    return  catalog.json();
-}
 
 export default async function MiddleLine() {
-  const catalogArr: ICategory[] = await getCatalog();
+  const catalogArr: ICategory[] = await getCatalogTop();
   return (
       <div className={'middle_line'}>
           <div className="container">

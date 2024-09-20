@@ -1,5 +1,5 @@
 import {NextResponse} from "next/server";
-import {productCartArr} from "../../../store/localData/productCartArr";
+import {productCartArr} from "@/store/localData/productCartArr";
 // import { prisma } from '../../../prisma/prisma';
 // import { CategoryList } from '@prisma/client';
 

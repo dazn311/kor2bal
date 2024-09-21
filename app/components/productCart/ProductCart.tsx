@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-// import TabsContainer from "../tabsContainer/TabsContainer";
+import {TabDescription} from "@/app/components/shared/TabDescription/TabDescription";
 import './productCart.styles.css';
 
 type Props = {
@@ -91,27 +91,7 @@ export default async function ProductCart({item}:Props) {
         <div className="product_tabs">
             <div className="container">
                 <div className="row">
-                    <div className="tabs_container">
-                        <div className="product_tabs_list">
-                            <div className="tabs_item active">Описание</div>
-                            <div className="tabs_item">Размеры</div>
-                            <div className="tabs_item">Доставка</div>
-                            <div className="tabs_item">Оплата</div>
-                        </div>
-
-                        <div className="product_tabs_content">
-                            <div className="content_descr">
-                                <p>Компрессионные штаны ComBasket:</p>
-                                <ul>
-                                    <li>Эластичный и прочный материал;</li>
-                                    <li>Идеально облегают ноги;</li>
-                                    <li>Сохраняют тепло.</li>
-                                </ul>
-                                <p>100% полиэстер.</p>
-                                <p>Незаменимая вещь в арсенале любого баскетболиста.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <TabDescription/>
                     <div className="previu_img">
                         <Image
                             key={'idx-100'}

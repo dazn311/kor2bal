@@ -14,7 +14,7 @@ export default function ProductViewShort ({ params: { id },url,isModal }: { para
             .then(prd => {
                 setItem(prd);
             })
-    },[]);
+    },[id]);
 
     if (!item) {
         return null;

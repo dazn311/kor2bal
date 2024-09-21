@@ -18,7 +18,7 @@ export const IntersectionBlock: React.FC<Props> = ({categoryId}) => {
         if (intersection?.isIntersecting) {
             setActiveId(categoryId);
         }
-    }, [intersection?.isIntersecting]);
+    }, [intersection?.isIntersecting,categoryId]);
 
     return (<div ref={intersectionRef} />)
 }

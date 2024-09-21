@@ -1,8 +1,8 @@
 import React from "react";
 import {notFound} from 'next/navigation';
 import Image from "next/image";
-import ProductViewShort from "../../../components/productViewShort/ProductViewShort";
-import {getCatalogBy} from "../../../../lib/getCatalogBy";
+import {getCatalogBy} from "@/lib/getCatalogBy";
+import ProductCartHome from "@/app/components/productCartHome/ProductCartHome";
 import './catalog.styles.css';
 // export const dynamic = 'force-static';
 
@@ -25,7 +25,7 @@ export default async function CategoryOne ({ params: { id } }: Props) {
                         <Image src={`/images${category.imageUrl}`} alt={category.name} width={200} height={200}/>
                     </div>
                     <div className={'catalog_list products'}>
-                        {category.products && category.products.map((item) => <ProductViewShort isModal={false} url={'/product'} key={item.id} params={{id: String(item.id)}}/>)}
+                        {category.products && category.products.map((item) => <ProductCartHome key={item.id} item={item}/>)}
                     </div>
                 </div>
             </div>
@@ -33,9 +33,40 @@ export default async function CategoryOne ({ params: { id } }: Props) {
     )
 }
 
+// console.log('17 category:',category)
+//{
+//   id: 3,
+//   name: 'Наколенники',
+//   imageUrl: '/catalog/nakolenniki.jpg',
+//   products: [
+//     {
+//       id: 8,
+//       name: 'БАСКЕТБОЛЬНЫЕ НАКОЛЕННИКИ С ДВОЙНОЙ ЗАЩИТОЙ',
+//       images: [Array],
+//       price: 3390
+//     },
+//     {
+//       id: 9,
+//       name: 'БАСКЕТБОЛЬНЫЕ НАКОЛЕННИКИ С ЗАЩИТОЙ',
+//       images: [Array],
+//       price: 3190
+//     },
+//     {
+//       id: 10,
+//       name: 'БАСКЕТБОЛЬНЫЕ НАКОЛЕННИКИ С ДВОЙНОЙ',
+//       images: [Array],
+//       price: 2490
+//     },
+//     {
+//       id: 11,
+//       name: 'БАСКЕТБОЛЬНЫЕ НАКОЛЕННИКИ С ДВОЙНОЙ',
+//       images: [Array],
+//       price: 2690
+//     }
+//   ]
+// }
+
 // export default CategoryOne;
-// import {getCatalog} from "../../../../lib/getCatalog";
-import {prisma} from "../../../../prisma/prisma";
 
 // interface IRes {
 //     id:  string;

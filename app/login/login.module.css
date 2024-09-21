@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 /**
 flex items-center justify-center h-screen
@@ -16,15 +17,17 @@ flex items-center justify-center h-screen
 /*max-w-md w-full bg-white rounded-lg shadow-lg p-8*/
 .loginH1 {
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 14px;
+    border-bottom: 1px solid gray;
 }
 /*text-2xl font-bold mb-4*/
 
 .formLabel {
     display: block;
     color: dimgrey;
-    font-weight: bold;
+    /*font-weight: bold;*/
     margin-bottom: 0.5rem;
+    font-size: 14px;
 }
 /*block text-gray-700 text-sm font-bold mb-2*/
 
@@ -56,8 +59,10 @@ flex items-center justify-center h-screen
 
 .btnGroup {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: space-between;
+    gap: 8px;
 }
 /*"flex items-center justify-between"*/
 
@@ -87,10 +92,20 @@ flex items-center justify-center h-screen
     background-color: cornflowerblue;
     outline: transparent;
 }
+
+.btnSubmit:hover {
+    color: #8d8a8a;
+    box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.3);
+}
+
 .forgot {
     display: inline-block;
-    align-items: baseline;
+    /*align-items: baseline;*/
     margin-left: 4px;
+    border-top: 1px solid gray;
+    margin-top: 12px;
+    padding-top: 8px;
+    width: 100%;
     /*font-weight: bold;*/
     /*background-color: dodgerblue;*/
 }
@@ -104,4 +119,8 @@ flex items-center justify-center h-screen
 }
 .session {
     background-color: white;
+}
+.githubBtn {
+    display: flex;
+    gap: 6px;
 }

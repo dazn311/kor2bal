@@ -1,14 +1,13 @@
 import {NextResponse} from "next/server";
 // import { prisma } from '../../../prisma/prisma';
-const catalogTopArr = [
+const catalogTopArr:TCatalogTop[] = [
     // {id:1, name:'Компрессионное белье'},
-    {id:1, name:'Рукава'},
-    {id:2, name:'Формы'},
-    {id:3, name:'Наколенники'},
-    {id:4, name:'Аксессуары'},
-    // {id:5, name:'Форма для команды'},
-    {id:6, name:'Скидки'},
-    {id:7, name:'Отзывы'},
+    {id:1, name:'Рукава',url:'/rukov'},
+    {id:2, name:'Формы',url:'/forma'},
+    {id:3, name:'Наколенники',url:'/nak'},
+    {id:4, name:'Аксессуары',url:'#'},
+    {id:6, name:'Скидки',url:'#'},
+    {id:7, name:'Отзывы',url:'/otzivi'},
 ];
 
 export async function GET() {

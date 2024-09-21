@@ -13,6 +13,11 @@ footer {
         display: none !important;
     }
 }
+@media screen and (max-width:991px)  {
+    .footer {
+        display: none !important;
+    }
+}
 
 footer ul {
     margin: 15px 0 30px;

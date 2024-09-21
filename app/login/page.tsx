@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import {useRouter} from "next/navigation";
 import {signIn, useSession} from 'next-auth/react';
 import Image from "next/image";
 import styles from './login.module.css';
@@ -11,12 +12,13 @@ import styles from './login.module.css';
 
 export default function Login() {
     const {data: session} = useSession();
+    const router = useRouter()
     // const activeId = useCategoryStore(state => state.activeId);
 
     if (session) {
-        const user = !!session?.user ? session.user : {name:'',image:''};
-        const image = !!user.image ? user.image : '';
-        const name = !!user.name ? user.name : '';
+        // @ts-ignore
+        const {name, image} = !!session ? session : {name: '', image: ''};
+
         return <div className={styles.session}>
             <div>Вы вошли успешно.</div>
             Добрый день, {name}!
@@ -28,23 +30,28 @@ export default function Login() {
                     alt={name}/>
             </div>
             <div>
-                <Link href={'/dashboard'} scroll={false} >Перейти в dashboard</Link>
+                <Link href={'/dashboard'} scroll={false}>Перейти в dashboard</Link>
             </div>
         </div>
     }
-    // redirect('/login')
+    const cancelHandler = (e: any) => {
+        console.log(e)
+        e.preventDefault();
+        e.stopPropagation();
+        router.push('/');
+    }
     return (
-        <div className={styles.loginWrap}>
+        <div className={styles.loginWrap} onClick={cancelHandler}>
             <div className={styles.login}>
                 <h2 className={styles.loginH1}>Вход</h2>
                 <form>
                     <div className={styles.mb4}>
-                        <label className={styles.formLabel} htmlFor="email">Имя пользователя или Email</label>
+                        <label className={styles.formLabel} htmlFor="email">Email или Имя пользователя</label>
                         <input
                             className={styles.formInput}
                             id="email"
                             type="email"
-                            placeholder="Enter your email"
+                            placeholder="email or name"
                         />
                     </div>
                     <div className={styles.mb4}>
@@ -53,20 +60,30 @@ export default function Login() {
                             className={styles.formInput}
                             id="password"
                             type="password"
-                            placeholder="Enter your password"
+                            placeholder="password"
                         />
                     </div>
                     <div className={styles.btnGroup}>
-                        <button className={styles.btnSubmit} type="button">Войти</button>
-                        <Link className={styles.forgot} href="#">Забыли свой пароль?</Link>
-                        <button onClick={()=>signIn('github')} className={styles.btnSubmit} type="button">github</button>
-                        <button onClick={()=>signIn('mailru')} className={styles.btnSubmit} type="button">mailru</button>
+                        <div className={styles.githubBtn}>
+                            <button className={styles.btnSubmit} type="button">Войти</button>
+                        </div>
+                        <div className={styles.forgot}>Войти через сети</div>
+                        <div className={styles.githubBtn}>
+                            <button onClick={() => signIn('github')} className={styles.btnSubmit}
+                                    type="button">github
+                            </button>
+                            <button onClick={() => signIn('mailru')} className={styles.btnSubmit}
+                                    type="button">mailru
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
     )
 }
+
+// <button className={styles.btnSubmit} onClick={cancelHandler} type="button">Отмена</button>
 
 //session : {
 //     "user": {

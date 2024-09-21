@@ -6,7 +6,7 @@ import './MiddleLine.styles.css';
 
 
 export default async function MiddleLine() {
-  const catalogArr: ICategory[] = await getCatalogTop();
+  const catalogArr: TCatalogTop[] = await getCatalogTop();
   return (
       <div className={'middle_line'}>
           <div className="container">
@@ -24,7 +24,7 @@ export default async function MiddleLine() {
                       <div className="menu-glavnoe-menyu-sprava">
                           <ul id={'menu-glavnoe-menyu-sprava'} className={'menu'}>
                               {catalogArr.slice(3,14).map((prd) => <li key={String(prd.id)} >
-                                  <Link href={'#'}>{prd.name}</Link>
+                                  <Link href={prd.url}>{prd.name}</Link>
                               </li>)}
                           </ul>
                       </div>
